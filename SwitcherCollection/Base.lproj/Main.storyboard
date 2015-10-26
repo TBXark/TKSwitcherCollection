@@ -202,6 +202,13 @@
                             <constraint firstItem="DR1-v9-w0u" firstAttribute="top" secondItem="k5w-B1-ykS" secondAttribute="bottom" constant="8" id="zc2-R5-pyl"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outletCollection property="switchArray" destination="7OX-87-eGn" id="y94-5c-tWN"/>
+                        <outletCollection property="switchArray" destination="q1o-Tw-KtW" id="ieK-P1-FSt"/>
+                        <outletCollection property="switchArray" destination="KC3-wX-T1k" id="Lu8-2c-amf"/>
+                        <outletCollection property="switchArray" destination="ARs-yq-gFQ" id="KFi-7f-7mo"/>
+                        <outletCollection property="switchArray" destination="Fua-hP-9SS" id="yxG-p3-0ho"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

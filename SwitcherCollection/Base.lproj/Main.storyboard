@@ -1,25 +1,211 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwitcherCollection" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5w-B1-ykS" userLabel="cell">
+                                <rect key="frame" x="20" y="28" width="280" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TKSimpleSwitch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="013-Vk-SAc" userLabel="type">
+                                        <rect key="frame" x="0.0" y="39" width="120" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7OX-87-eGn" userLabel="switch" customClass="TKSimpleSwitch" customModule="SwitcherCollection" customModuleProvider="target">
+                                        <rect key="frame" x="140" y="20" width="120" height="60"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Ttk-55-25I"/>
+                                            <constraint firstAttribute="width" constant="120" id="aBL-Rr-R2k"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="013-Vk-SAc" secondAttribute="bottom" constant="40" id="126-4o-RdX"/>
+                                    <constraint firstItem="7OX-87-eGn" firstAttribute="leading" secondItem="013-Vk-SAc" secondAttribute="trailing" constant="20" id="I65-Yi-Ci5"/>
+                                    <constraint firstAttribute="trailing" secondItem="7OX-87-eGn" secondAttribute="trailing" constant="20" id="WBO-1m-PnM"/>
+                                    <constraint firstAttribute="height" constant="100" id="bQQ-za-bZL"/>
+                                    <constraint firstItem="013-Vk-SAc" firstAttribute="top" secondItem="k5w-B1-ykS" secondAttribute="top" constant="39" id="ePI-fp-DZL"/>
+                                    <constraint firstItem="013-Vk-SAc" firstAttribute="leading" secondItem="k5w-B1-ykS" secondAttribute="leading" id="oIF-YK-LDJ"/>
+                                    <constraint firstItem="7OX-87-eGn" firstAttribute="top" secondItem="k5w-B1-ykS" secondAttribute="top" constant="20" id="upG-Mf-BaT"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DR1-v9-w0u" userLabel="cell">
+                                <rect key="frame" x="20" y="136" width="280" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TKSimpleSwitch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q19-q7-UEF" userLabel="type">
+                                        <rect key="frame" x="0.0" y="39" width="120" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q1o-Tw-KtW" userLabel="switch" customClass="TKSimpleSwitch" customModule="SwitcherCollection" customModuleProvider="target">
+                                        <rect key="frame" x="140" y="20" width="120" height="60"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="25O-fr-OzF"/>
+                                            <constraint firstAttribute="height" constant="60" id="KzQ-8E-JV1"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="rotateWhenValueChange" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="q1o-Tw-KtW" firstAttribute="top" secondItem="DR1-v9-w0u" secondAttribute="top" constant="20" id="FNV-ka-gVa"/>
+                                    <constraint firstItem="Q19-q7-UEF" firstAttribute="top" secondItem="DR1-v9-w0u" secondAttribute="top" constant="39" id="Fuc-BM-ft0"/>
+                                    <constraint firstAttribute="bottom" secondItem="Q19-q7-UEF" secondAttribute="bottom" constant="40" id="NZp-B1-T0d"/>
+                                    <constraint firstItem="Q19-q7-UEF" firstAttribute="leading" secondItem="DR1-v9-w0u" secondAttribute="leading" id="QQK-34-lg6"/>
+                                    <constraint firstAttribute="trailing" secondItem="q1o-Tw-KtW" secondAttribute="trailing" constant="20" id="c4a-7V-m9p"/>
+                                    <constraint firstItem="q1o-Tw-KtW" firstAttribute="leading" secondItem="Q19-q7-UEF" secondAttribute="trailing" constant="20" id="e5B-83-nmQ"/>
+                                    <constraint firstAttribute="height" constant="100" id="lyr-on-ZcY"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LtK-Ie-fqK" userLabel="cell">
+                                <rect key="frame" x="20" y="244" width="280" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TKExchangeSwitch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PF-ld-ejM" userLabel="type">
+                                        <rect key="frame" x="0.0" y="39" width="120" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KC3-wX-T1k" userLabel="switch" customClass="TKExchangeSwitch" customModule="SwitcherCollection" customModuleProvider="target">
+                                        <rect key="frame" x="140" y="20" width="120" height="60"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="MZJ-61-ETM"/>
+                                            <constraint firstAttribute="width" constant="120" id="YEQ-NQ-tEA"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7PF-ld-ejM" firstAttribute="leading" secondItem="LtK-Ie-fqK" secondAttribute="leading" id="52R-4b-rLe"/>
+                                    <constraint firstAttribute="trailing" secondItem="KC3-wX-T1k" secondAttribute="trailing" constant="20" id="7DL-1U-uJd"/>
+                                    <constraint firstItem="KC3-wX-T1k" firstAttribute="leading" secondItem="7PF-ld-ejM" secondAttribute="trailing" constant="20" id="7OG-nR-fEe"/>
+                                    <constraint firstAttribute="bottom" secondItem="7PF-ld-ejM" secondAttribute="bottom" constant="40" id="NJv-Tu-BAc"/>
+                                    <constraint firstAttribute="height" constant="100" id="RRu-eE-Ism"/>
+                                    <constraint firstItem="KC3-wX-T1k" firstAttribute="top" secondItem="LtK-Ie-fqK" secondAttribute="top" constant="20" id="gqp-8W-97J"/>
+                                    <constraint firstItem="7PF-ld-ejM" firstAttribute="top" secondItem="LtK-Ie-fqK" secondAttribute="top" constant="39" id="tvQ-Le-qLN"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kta-uI-c4g" userLabel="cell">
+                                <rect key="frame" x="20" y="352" width="280" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TKSmileSwitch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJr-HY-1Iz" userLabel="type">
+                                        <rect key="frame" x="0.0" y="39" width="120" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ARs-yq-gFQ" userLabel="switch" customClass="TKSmileSwitch" customModule="SwitcherCollection" customModuleProvider="target">
+                                        <rect key="frame" x="140" y="20" width="120" height="60"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="8ip-Z2-Psy"/>
+                                            <constraint firstAttribute="width" constant="120" id="edr-QF-b4T"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="GJr-HY-1Iz" firstAttribute="leading" secondItem="kta-uI-c4g" secondAttribute="leading" id="AgD-dh-CnR"/>
+                                    <constraint firstAttribute="bottom" secondItem="GJr-HY-1Iz" secondAttribute="bottom" constant="40" id="Fci-xE-Dmc"/>
+                                    <constraint firstItem="ARs-yq-gFQ" firstAttribute="top" secondItem="kta-uI-c4g" secondAttribute="top" constant="20" id="jMl-iq-NQK"/>
+                                    <constraint firstAttribute="height" constant="100" id="mpR-Ex-L0R"/>
+                                    <constraint firstItem="GJr-HY-1Iz" firstAttribute="top" secondItem="kta-uI-c4g" secondAttribute="top" constant="39" id="mvF-VP-Tn4"/>
+                                    <constraint firstItem="ARs-yq-gFQ" firstAttribute="leading" secondItem="GJr-HY-1Iz" secondAttribute="trailing" constant="20" id="wvc-kx-TDF"/>
+                                    <constraint firstAttribute="trailing" secondItem="ARs-yq-gFQ" secondAttribute="trailing" constant="20" id="yzU-PE-9k9"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Nl-xn-CAM" userLabel="cell">
+                                <rect key="frame" x="20" y="460" width="280" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="TKLiquidSwitch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3c-Xc-6Fl" userLabel="type">
+                                        <rect key="frame" x="0.0" y="39" width="120" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fua-hP-9SS" userLabel="switch" customClass="TKLiquidSwitch" customModule="SwitcherCollection" customModuleProvider="target">
+                                        <rect key="frame" x="140" y="20" width="120" height="60"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="7ko-W8-8qL"/>
+                                            <constraint firstAttribute="height" constant="60" id="X0I-le-5Rh"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="B7b-uG-IrA"/>
+                                    <constraint firstItem="Fua-hP-9SS" firstAttribute="leading" secondItem="s3c-Xc-6Fl" secondAttribute="trailing" constant="20" id="Ha1-oD-7O6"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fua-hP-9SS" secondAttribute="trailing" constant="20" id="PHD-ea-bUf"/>
+                                    <constraint firstItem="Fua-hP-9SS" firstAttribute="top" secondItem="8Nl-xn-CAM" secondAttribute="top" constant="20" id="Qkg-BL-2tB"/>
+                                    <constraint firstItem="s3c-Xc-6Fl" firstAttribute="leading" secondItem="8Nl-xn-CAM" secondAttribute="leading" id="f1d-FF-d35"/>
+                                    <constraint firstItem="s3c-Xc-6Fl" firstAttribute="top" secondItem="8Nl-xn-CAM" secondAttribute="top" constant="39" id="fsz-zY-a5s"/>
+                                    <constraint firstAttribute="bottom" secondItem="s3c-Xc-6Fl" secondAttribute="bottom" constant="40" id="nhP-Af-Srz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="k5w-B1-ykS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="4Ah-Yx-lwz"/>
+                            <constraint firstItem="k5w-B1-ykS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="4Er-Tr-lHJ"/>
+                            <constraint firstItem="8Nl-xn-CAM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="AqZ-ct-P49"/>
+                            <constraint firstItem="kta-uI-c4g" firstAttribute="top" secondItem="LtK-Ie-fqK" secondAttribute="bottom" constant="8" id="Drz-aE-5Yk"/>
+                            <constraint firstItem="LtK-Ie-fqK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Fvp-zE-N12"/>
+                            <constraint firstItem="kta-uI-c4g" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Kde-4x-Bvq"/>
+                            <constraint firstItem="8Nl-xn-CAM" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="OiS-QX-UhC"/>
+                            <constraint firstItem="LtK-Ie-fqK" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Vlu-4j-blu"/>
+                            <constraint firstItem="k5w-B1-ykS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Wqr-Sj-4V3"/>
+                            <constraint firstItem="LtK-Ie-fqK" firstAttribute="top" secondItem="DR1-v9-w0u" secondAttribute="bottom" constant="8" id="Xk5-v8-l0g"/>
+                            <constraint firstItem="8Nl-xn-CAM" firstAttribute="top" secondItem="kta-uI-c4g" secondAttribute="bottom" constant="8" id="awt-t6-sVa"/>
+                            <constraint firstItem="DR1-v9-w0u" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="lFC-su-zh8"/>
+                            <constraint firstItem="DR1-v9-w0u" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="oSt-7r-SNw"/>
+                            <constraint firstItem="kta-uI-c4g" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="obz-FH-5Uy"/>
+                            <constraint firstItem="DR1-v9-w0u" firstAttribute="top" secondItem="k5w-B1-ykS" secondAttribute="bottom" constant="8" id="zc2-R5-pyl"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="189" y="352"/>
         </scene>
     </scenes>
 </document>

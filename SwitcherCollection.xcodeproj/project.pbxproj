@@ -12,6 +12,11 @@
 		6A555EA01BDCA58700FC36E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A555E9E1BDCA58700FC36E6 /* Main.storyboard */; };
 		6A555EA21BDCA58700FC36E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A555EA11BDCA58700FC36E6 /* Assets.xcassets */; };
 		6A555EA51BDCA58700FC36E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A555EA31BDCA58700FC36E6 /* LaunchScreen.storyboard */; };
+		6A555EB31BDCA6A800FC36E6 /* TKMainSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A555EB11BDCA6A800FC36E6 /* TKMainSwitcher.swift */; };
+		6A555EB41BDCA6A800FC36E6 /* TKSmileSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A555EB21BDCA6A800FC36E6 /* TKSmileSwitch.swift */; };
+		6A555EB61BDCCBC200FC36E6 /* TKSimpleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A555EB51BDCCBC200FC36E6 /* TKSimpleSwitch.swift */; };
+		6A555EB81BDD2AA600FC36E6 /* TKExchangeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A555EB71BDD2AA600FC36E6 /* TKExchangeSwitch.swift */; };
+		6A555EBA1BDDD26A00FC36E6 /* TKLiquidSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A555EB91BDDD26A00FC36E6 /* TKLiquidSwitch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		6A555EA11BDCA58700FC36E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A555EA41BDCA58700FC36E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A555EA61BDCA58700FC36E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A555EB11BDCA6A800FC36E6 /* TKMainSwitcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKMainSwitcher.swift; sourceTree = "<group>"; };
+		6A555EB21BDCA6A800FC36E6 /* TKSmileSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKSmileSwitch.swift; sourceTree = "<group>"; };
+		6A555EB51BDCCBC200FC36E6 /* TKSimpleSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKSimpleSwitch.swift; sourceTree = "<group>"; };
+		6A555EB71BDD2AA600FC36E6 /* TKExchangeSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKExchangeSwitch.swift; sourceTree = "<group>"; };
+		6A555EB91BDDD26A00FC36E6 /* TKLiquidSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKLiquidSwitch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +66,25 @@
 			children = (
 				6A555E9A1BDCA58700FC36E6 /* AppDelegate.swift */,
 				6A555E9C1BDCA58700FC36E6 /* ViewController.swift */,
+				6A555EB01BDCA5EF00FC36E6 /* Switcher */,
 				6A555E9E1BDCA58700FC36E6 /* Main.storyboard */,
 				6A555EA11BDCA58700FC36E6 /* Assets.xcassets */,
 				6A555EA31BDCA58700FC36E6 /* LaunchScreen.storyboard */,
 				6A555EA61BDCA58700FC36E6 /* Info.plist */,
 			);
 			path = SwitcherCollection;
+			sourceTree = "<group>";
+		};
+		6A555EB01BDCA5EF00FC36E6 /* Switcher */ = {
+			isa = PBXGroup;
+			children = (
+				6A555EB11BDCA6A800FC36E6 /* TKMainSwitcher.swift */,
+				6A555EB51BDCCBC200FC36E6 /* TKSimpleSwitch.swift */,
+				6A555EB71BDD2AA600FC36E6 /* TKExchangeSwitch.swift */,
+				6A555EB21BDCA6A800FC36E6 /* TKSmileSwitch.swift */,
+				6A555EB91BDDD26A00FC36E6 /* TKLiquidSwitch.swift */,
+			);
+			name = Switcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +113,7 @@
 		6A555E8F1BDCA58700FC36E6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TK;
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = TBXark;
@@ -135,8 +159,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A555EB61BDCCBC200FC36E6 /* TKSimpleSwitch.swift in Sources */,
+				6A555EB31BDCA6A800FC36E6 /* TKMainSwitcher.swift in Sources */,
+				6A555EB41BDCA6A800FC36E6 /* TKSmileSwitch.swift in Sources */,
 				6A555E9D1BDCA58700FC36E6 /* ViewController.swift in Sources */,
 				6A555E9B1BDCA58700FC36E6 /* AppDelegate.swift in Sources */,
+				6A555EB81BDD2AA600FC36E6 /* TKExchangeSwitch.swift in Sources */,
+				6A555EBA1BDDD26A00FC36E6 /* TKLiquidSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +313,7 @@
 				6A555EAB1BDCA58700FC36E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

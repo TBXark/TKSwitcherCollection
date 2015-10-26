@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet var switchArray: [TKMainSwitch]!
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "animateSwitch:", userInfo: nil, repeats: true)
+//        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "animateSwitch:", userInfo: nil, repeats: true)
     }
     
     func animateSwitch(timer:NSTimer){

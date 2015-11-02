@@ -71,6 +71,9 @@ class TKSmileSwitch:  TKMainSwitch{
 
 }
 
+
+
+// 脸
 class TKSmileFaceView : UIView {
     
     enum FaceType{

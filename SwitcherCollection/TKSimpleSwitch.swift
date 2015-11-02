@@ -18,12 +18,17 @@ class TKSimpleSwitch:  TKMainSwitch{
     var swichControl = CAShapeLayer()
     var backgroundLayer = CAShapeLayer()
     
-
+    // 是否加旋转特效
     var rotateWhenValueChange = false
-    var onColor : UIColor = UIColor(red:0.341,  green:0.914,  blue:0.506, alpha:1)
-    var offColor : UIColor = UIColor(white: 0.9, alpha: 1)
-    var lineColor :UIColor = UIColor(white: 0.8, alpha: 1)
+    
+    
+    var onColor     : UIColor = UIColor(red:0.341,  green:0.914,  blue:0.506, alpha:1)
+    var offColor    : UIColor = UIColor(white: 0.9, alpha: 1)
+    var lineColor   : UIColor = UIColor(white: 0.8, alpha: 1)
     var circleColor : UIColor = UIColor.whiteColor()
+    
+    
+    
     var lineSize : Double = 10
     
     var lineWidth : CGFloat {
@@ -41,6 +46,7 @@ class TKSimpleSwitch:  TKMainSwitch{
     }
     
     
+    // 初始化 View
     override func setUpView(){
         super.setUpView()
         self.backgroundColor = UIColor.clearColor()
@@ -85,6 +91,8 @@ class TKSimpleSwitch:  TKMainSwitch{
         
         let times = [0,0.49,0.51,1]
         
+        
+        // 线条运动动画
         let swichControlStrokeStartAnim      = CAKeyframeAnimation(keyPath:"strokeStart")
         swichControlStrokeStartAnim.values   = turnOn ? [1,0,0, 0] : [0,0,0,1]
         swichControlStrokeStartAnim.keyTimes = times
@@ -97,7 +105,9 @@ class TKSimpleSwitch:  TKMainSwitch{
         swichControlStrokeEndAnim.duration = duration
         swichControlStrokeEndAnim.removedOnCompletion = true
         
-
+        
+        
+        // 颜色动画
         let backgroundFillColorAnim      = CAKeyframeAnimation(keyPath:"fillColor")
         backgroundFillColorAnim.values   = [stateToFillColor(!turnOn),
                                             stateToFillColor(!turnOn),
@@ -109,6 +119,7 @@ class TKSimpleSwitch:  TKMainSwitch{
         backgroundFillColorAnim.removedOnCompletion = false
         
 
+        // 旋转动画
         if rotateWhenValueChange{
             UIView.animateWithDuration(duration, animations: { () -> Void in
                 self.transform = CGAffineTransformRotate(self.transform, CGFloat(M_PI))
@@ -116,6 +127,7 @@ class TKSimpleSwitch:  TKMainSwitch{
         }
         
         
+        // 动画组
         let swichControlChangeStateAnim : CAAnimationGroup = CAAnimationGroup()
         swichControlChangeStateAnim.animations = [swichControlStrokeStartAnim,swichControlStrokeEndAnim]
         swichControlChangeStateAnim.fillMode = kCAFillModeForwards

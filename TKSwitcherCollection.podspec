@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "A animate switcher cllection in Swift."
   s.homepage     = "https://github.com/TBXark/TKSwitcherCollection"
   s.license      = { :type => 'MIT License', :file => 'LICENSE' }
-  s.author       = { "vfanx" => "tbxark@qq.com" }
+  s.author       = { "vfanx" => "tbxark@outlook.com" }
   s.source       = { :git => "https://github.com/TBXark/TKSwitcherCollection.git", :tag => s.version }
   s.platform     = :ios, '8.0'
   s.source_files = 'Classes/*.swift'

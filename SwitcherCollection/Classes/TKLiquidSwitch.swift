@@ -90,7 +90,8 @@ extension TKLiquidSwitch{
 
     var bubbleShapePath : CGPathRef {
         let bubblePath = UIBezierPath()
-        let CGPointScaleMake = CGPointMake(self.sizeScale)
+        let CGPointScaleMake = CGPointScaleMaker(self.sizeScale)
+        
         bubblePath.moveToPoint(CGPointScaleMake(120.6, 34.75))
         bubblePath.addCurveToPoint(CGPointScaleMake(150, 50), controlPoint1: CGPointScaleMake(125.45, 43.71), controlPoint2: CGPointScaleMake(136.79, 50))
         bubblePath.addCurveToPoint(CGPointScaleMake(138.26, 51.75), controlPoint1: CGPointScaleMake(145.85, 50), controlPoint2: CGPointScaleMake(141.89, 50.62))

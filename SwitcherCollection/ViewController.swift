@@ -15,16 +15,15 @@ class ViewController: UIViewController {
     @IBOutlet var switchArray: [TKMainSwitch]!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "animateSwitch:", userInfo: nil, repeats: true)
     }
     
     func animateSwitch(timer:NSTimer){
         switchArray[count].changeValue()
-        count++
+        count += 1
         if count  == (switchArray.count){
             count = 0
             timer.invalidate()
-            NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "animateSwitch:", userInfo: nil, repeats: true)
+            NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: #selector(ViewController.animateSwitch(_:)), userInfo: nil, repeats: true)
         }
     }
     
@@ -32,7 +31,6 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 

@@ -9,6 +9,10 @@
 import UIKit
 
 typealias ValueChangeHook  = (value:Bool) -> Void
+func CGPointScaleMaker(scale: CGFloat) -> ((CGFloat, CGFloat) -> CGPoint) {
+    return { (x, y) in
+        return CGPointMake(x * scale ,y * scale)}
+}
 
 
 // 自定义 Switch 基类
@@ -26,7 +30,7 @@ class TKMainSwitch: UIControl {
     }
     
     func setUpView(){
-        let tap = UITapGestureRecognizer(target: self, action: "changeValue")
+        let tap = UITapGestureRecognizer(target: self, action: #selector(TKMainSwitch.changeValue))
         self.addGestureRecognizer(tap)        
     }
     
@@ -48,9 +52,4 @@ extension UIView{
     }
 }
 
-
-// 柯里化函数,快速创建按比利缩放的 Rect
-func CGPointMake(scale:CGFloat)(_ x: CGFloat, _ y: CGFloat) -> CGPoint{
-    return CGPointMake(x * scale ,y * scale)
-}
 

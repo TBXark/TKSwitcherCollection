@@ -12,7 +12,7 @@ var count : Int = 0
 
 class ViewController: UIViewController {
 
-    @IBOutlet var switchArray: [TKMainSwitch]!
+    @IBOutlet var switchArray: [TKBaseSwitch]!
     override func viewDidLoad() {
         super.viewDidLoad()
     }

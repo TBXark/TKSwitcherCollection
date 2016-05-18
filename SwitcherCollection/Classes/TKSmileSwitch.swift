@@ -13,7 +13,7 @@ import UIKit
 
 
 
-class TKSmileSwitch:  TKMainSwitch{
+class TKSmileSwitch:  TKBaseSwitch{
     
     // MARK: - Poperty
     var smileFace : TKSmileFaceView?

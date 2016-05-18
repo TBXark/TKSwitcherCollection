@@ -1,5 +1,5 @@
 //
-//  TKMainSwitcher.swift
+//  TKBaseSwitcher.swift
 //  SwitcherCollection
 //
 //  Created by Tbxark on 15/10/25.
@@ -16,7 +16,7 @@ func CGPointScaleMaker(scale: CGFloat) -> ((CGFloat, CGFloat) -> CGPoint) {
 
 
 // 自定义 Switch 基类
-class TKMainSwitch: UIControl {
+class TKBaseSwitch: UIControl {
     
     // MARK: - Property
     var valueChange : ValueChangeHook?
@@ -30,7 +30,7 @@ class TKMainSwitch: UIControl {
     }
     
     func setUpView(){
-        let tap = UITapGestureRecognizer(target: self, action: #selector(TKMainSwitch.changeValue))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(TKBaseSwitch.changeValue))
         self.addGestureRecognizer(tap)        
     }
     

@@ -10,7 +10,7 @@ import UIKit
 // Dedign by Oleg Frolov
 //https://dribbble.com/shots/2238916-Switcher-VI
 
-class TKExchangeSwitch:  TKMainSwitch{
+class TKExchangeSwitch:  TKBaseSwitch{
 
     // MARK: - Property
     var swichControl : TKExchangeCircleView!

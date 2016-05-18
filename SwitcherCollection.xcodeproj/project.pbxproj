@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		6A3D16F31BE99A020018C0C4 /* TKExchangeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D16EE1BE99A020018C0C4 /* TKExchangeSwitch.swift */; };
 		6A3D16F41BE99A020018C0C4 /* TKLiquidSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D16EF1BE99A020018C0C4 /* TKLiquidSwitch.swift */; };
-		6A3D16F51BE99A020018C0C4 /* TKMainSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D16F01BE99A020018C0C4 /* TKMainSwitcher.swift */; };
+		6A3D16F51BE99A020018C0C4 /* TKBaseSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D16F01BE99A020018C0C4 /* TKBaseSwitcher.swift */; };
 		6A3D16F61BE99A020018C0C4 /* TKSimpleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D16F11BE99A020018C0C4 /* TKSimpleSwitch.swift */; };
 		6A3D16F71BE99A020018C0C4 /* TKSmileSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D16F21BE99A020018C0C4 /* TKSmileSwitch.swift */; };
 		6A555E9B1BDCA58700FC36E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A555E9A1BDCA58700FC36E6 /* AppDelegate.swift */; };
@@ -23,7 +23,7 @@
 /* Begin PBXFileReference section */
 		6A3D16EE1BE99A020018C0C4 /* TKExchangeSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKExchangeSwitch.swift; sourceTree = "<group>"; };
 		6A3D16EF1BE99A020018C0C4 /* TKLiquidSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKLiquidSwitch.swift; sourceTree = "<group>"; };
-		6A3D16F01BE99A020018C0C4 /* TKMainSwitcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKMainSwitcher.swift; sourceTree = "<group>"; };
+		6A3D16F01BE99A020018C0C4 /* TKBaseSwitcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKBaseSwitcher.swift; sourceTree = "<group>"; };
 		6A3D16F11BE99A020018C0C4 /* TKSimpleSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKSimpleSwitch.swift; sourceTree = "<group>"; };
 		6A3D16F21BE99A020018C0C4 /* TKSmileSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TKSmileSwitch.swift; sourceTree = "<group>"; };
 		6A555E971BDCA58700FC36E6 /* SwitcherCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwitcherCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,7 +52,7 @@
 			children = (
 				6A3D16EE1BE99A020018C0C4 /* TKExchangeSwitch.swift */,
 				6A3D16EF1BE99A020018C0C4 /* TKLiquidSwitch.swift */,
-				6A3D16F01BE99A020018C0C4 /* TKMainSwitcher.swift */,
+				6A3D16F01BE99A020018C0C4 /* TKBaseSwitcher.swift */,
 				6A3D16F11BE99A020018C0C4 /* TKSimpleSwitch.swift */,
 				6A3D16F21BE99A020018C0C4 /* TKSmileSwitch.swift */,
 			);
@@ -168,7 +168,7 @@
 				6A3D16F61BE99A020018C0C4 /* TKSimpleSwitch.swift in Sources */,
 				6A555E9B1BDCA58700FC36E6 /* AppDelegate.swift in Sources */,
 				6A3D16F71BE99A020018C0C4 /* TKSmileSwitch.swift in Sources */,
-				6A3D16F51BE99A020018C0C4 /* TKMainSwitcher.swift in Sources */,
+				6A3D16F51BE99A020018C0C4 /* TKBaseSwitcher.swift in Sources */,
 				6A3D16F31BE99A020018C0C4 /* TKExchangeSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

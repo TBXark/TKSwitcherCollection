@@ -11,7 +11,7 @@ import UIKit
 // Dedign by Oleg Frolov
 //https://dribbble.com/shots/2028065-Switcher-lll
 
-class TKLiquidSwitch: TKMainSwitch {
+class TKLiquidSwitch: TKBaseSwitch {
     
     
     var bubbleLayer = CAShapeLayer()

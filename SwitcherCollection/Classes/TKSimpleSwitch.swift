@@ -13,7 +13,7 @@ import UIKit
 //https://dribbble.com/shots/2165675-Switcher-V
 
 
-class TKSimpleSwitch:  TKMainSwitch{
+class TKSimpleSwitch:  TKBaseSwitch{
     
     var swichControl = CAShapeLayer()
     var backgroundLayer = CAShapeLayer()

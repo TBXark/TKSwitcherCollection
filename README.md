@@ -30,6 +30,15 @@
 
 ---
 
+## 使用
+### 1. Cocoapod
+> pod 'TKSwitcherCollection', '~> 1.0.2'
+
+### 2. 直接引用
+将 SwitcherCollection/Classes 中所有文件拖进项目中即可
+
+
+---
 ## 最后
 
 这个只是我这个 OCer 在学 Swift 的练手项目,写的时候只考虑实现效果,没有怎么的想封装和其他的.

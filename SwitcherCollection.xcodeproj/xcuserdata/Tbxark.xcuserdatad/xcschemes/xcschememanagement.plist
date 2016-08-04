@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>TKSwitcherCollection.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>6A555E961BDCA58700FC36E6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6A9104111D53A8740009451B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

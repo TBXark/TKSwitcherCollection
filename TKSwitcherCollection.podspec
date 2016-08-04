@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "TKSwitcherCollection"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "A animate switcher cllection in Swift."
   s.license      = { :type => 'MIT License', :file => 'LICENSE' } # 协议
   s.homepage     = "https://github.com/TBXark/TKSwitcherCollection"

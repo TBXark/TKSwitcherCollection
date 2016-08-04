@@ -18,6 +18,12 @@
 		6A555EA21BDCA58700FC36E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A555EA11BDCA58700FC36E6 /* Assets.xcassets */; };
 		6A555EA51BDCA58700FC36E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A555EA31BDCA58700FC36E6 /* LaunchScreen.storyboard */; };
 		6A555EBC1BDE1DF800FC36E6 /* gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 6A555EBB1BDE1DF800FC36E6 /* gif.gif */; };
+		6A9104151D53A8740009451B /* TKSwitcherCollection.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A9104141D53A8740009451B /* TKSwitcherCollection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6A91041A1D53A8900009451B /* TKExchangeSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D16EE1BE99A020018C0C4 /* TKExchangeSwitch.swift */; };
+		6A91041B1D53A8900009451B /* TKLiquidSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D16EF1BE99A020018C0C4 /* TKLiquidSwitch.swift */; };
+		6A91041C1D53A8900009451B /* TKBaseSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D16F01BE99A020018C0C4 /* TKBaseSwitcher.swift */; };
+		6A91041D1D53A8900009451B /* TKSimpleSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D16F11BE99A020018C0C4 /* TKSimpleSwitch.swift */; };
+		6A91041E1D53A8900009451B /* TKSmileSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D16F21BE99A020018C0C4 /* TKSmileSwitch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +40,20 @@
 		6A555EA41BDCA58700FC36E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A555EA61BDCA58700FC36E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A555EBB1BDE1DF800FC36E6 /* gif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif.gif; sourceTree = "<group>"; };
+		6A9104121D53A8740009451B /* TKSwitcherCollection.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TKSwitcherCollection.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A9104141D53A8740009451B /* TKSwitcherCollection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TKSwitcherCollection.h; sourceTree = "<group>"; };
+		6A9104161D53A8740009451B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6A555E941BDCA58700FC36E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A91040E1D53A8740009451B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -63,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				6A555E991BDCA58700FC36E6 /* SwitcherCollection */,
+				6A9104131D53A8740009451B /* TKSwitcherCollection */,
 				6A555E981BDCA58700FC36E6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				6A555E971BDCA58700FC36E6 /* SwitcherCollection.app */,
+				6A9104121D53A8740009451B /* TKSwitcherCollection.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,7 +108,27 @@
 			path = SwitcherCollection;
 			sourceTree = "<group>";
 		};
+		6A9104131D53A8740009451B /* TKSwitcherCollection */ = {
+			isa = PBXGroup;
+			children = (
+				6A9104141D53A8740009451B /* TKSwitcherCollection.h */,
+				6A9104161D53A8740009451B /* Info.plist */,
+			);
+			path = TKSwitcherCollection;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6A91040F1D53A8740009451B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A9104151D53A8740009451B /* TKSwitcherCollection.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		6A555E961BDCA58700FC36E6 /* SwitcherCollection */ = {
@@ -110,6 +148,24 @@
 			productReference = 6A555E971BDCA58700FC36E6 /* SwitcherCollection.app */;
 			productType = "com.apple.product-type.application";
 		};
+		6A9104111D53A8740009451B /* TKSwitcherCollection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A9104191D53A8740009451B /* Build configuration list for PBXNativeTarget "TKSwitcherCollection" */;
+			buildPhases = (
+				6A91040D1D53A8740009451B /* Sources */,
+				6A91040E1D53A8740009451B /* Frameworks */,
+				6A91040F1D53A8740009451B /* Headers */,
+				6A9104101D53A8740009451B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TKSwitcherCollection;
+			productName = TKSwitcherCollection;
+			productReference = 6A9104121D53A8740009451B /* TKSwitcherCollection.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -123,6 +179,9 @@
 				TargetAttributes = {
 					6A555E961BDCA58700FC36E6 = {
 						CreatedOnToolsVersion = 7.1;
+					};
+					6A9104111D53A8740009451B = {
+						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
 			};
@@ -140,6 +199,7 @@
 			projectRoot = "";
 			targets = (
 				6A555E961BDCA58700FC36E6 /* SwitcherCollection */,
+				6A9104111D53A8740009451B /* TKSwitcherCollection */,
 			);
 		};
 /* End PBXProject section */
@@ -153,6 +213,13 @@
 				6A555EBC1BDE1DF800FC36E6 /* gif.gif in Resources */,
 				6A555EA21BDCA58700FC36E6 /* Assets.xcassets in Resources */,
 				6A555EA01BDCA58700FC36E6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A9104101D53A8740009451B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +237,18 @@
 				6A3D16F71BE99A020018C0C4 /* TKSmileSwitch.swift in Sources */,
 				6A3D16F51BE99A020018C0C4 /* TKBaseSwitcher.swift in Sources */,
 				6A3D16F31BE99A020018C0C4 /* TKExchangeSwitch.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A91040D1D53A8740009451B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A91041A1D53A8900009451B /* TKExchangeSwitch.swift in Sources */,
+				6A91041B1D53A8900009451B /* TKLiquidSwitch.swift in Sources */,
+				6A91041C1D53A8900009451B /* TKBaseSwitcher.swift in Sources */,
+				6A91041D1D53A8900009451B /* TKSimpleSwitch.swift in Sources */,
+				6A91041E1D53A8900009451B /* TKSmileSwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +377,50 @@
 			};
 			name = Release;
 		};
+		6A9104171D53A8740009451B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TKSwitcherCollection/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TBXark.TKSwitcherCollection;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6A9104181D53A8740009451B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = TKSwitcherCollection/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TBXark.TKSwitcherCollection;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -318,6 +441,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6A9104191D53A8740009451B /* Build configuration list for PBXNativeTarget "TKSwitcherCollection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A9104171D53A8740009451B /* Debug */,
+				6A9104181D53A8740009451B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

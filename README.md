@@ -9,8 +9,6 @@
 [![Support](https://img.shields.io/badge/support-iOS%208%2B%20-blue.svg?style=flat)](https://www.apple.com/nl/ios/)
 
 
-![](demo.gif)
-
 ## Requirements
 
 - iOS 8.0+

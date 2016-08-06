@@ -1,5 +1,5 @@
 # TKSwitcherCollection
-> A segment with dot animation
+> An animate switch collection
 
 [![Swift Version][swift-image]][swift-url]
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/TBXark/TKSwitcherCollection/master/LICENSE)

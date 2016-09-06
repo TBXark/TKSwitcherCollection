@@ -47,7 +47,7 @@ github "tbxark/TKSwitcherCollection"
 |---|---|
 |TKSimpleSwitch|<img src="Example/simple.gif" style="height:200;width:auto">|  
 |TKSimpleSwitch|<img src="Example/simple2.gif" style="height:200;width:auto">|  
-|TKExchangeSwitch|<img scr="Example/exchange.gif" style="height:200;width:auto">|
+|TKExchangeSwitch|<img src="Example/exchange.gif" style="height:200;width:auto">|  
 |TKSmileSwitch|<img src="Example/smile.gif" style="height:200;width:auto">|  
 |TKLiquidSwitch|<img src="Example/liquid.gif" style="height:200;width:auto">|  
 

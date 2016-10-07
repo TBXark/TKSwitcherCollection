@@ -12,7 +12,8 @@
 ## Requirements
 
 - iOS 8.0+
-- Xcode 7.3
+- Xcode 8.0
+- Swift 3.0
 
 ## Installation
 
@@ -53,7 +54,8 @@ github "tbxark/TKSwitcherCollection"
 
 
 ## Release History
-
+* 1.3.0
+  support swift 3.0
 * 1.0.3
   Complete basic functions, add Cocoapod and Carthage support
 

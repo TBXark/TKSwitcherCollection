@@ -12,7 +12,8 @@
 ## Requirements
 
 - iOS 8.0+
-- Xcode 7.3
+- Xcode 8.0
+- Swift 3.0
 
 ## Installation
 
@@ -47,12 +48,14 @@ github "tbxark/TKSwitcherCollection"
 |---|---|
 |TKSimpleSwitch|<img src="Example/simple.gif" style="height:200;width:auto">|  
 |TKSimpleSwitch|<img src="Example/simple2.gif" style="height:200;width:auto">|  
+|TKExchangeSwitch|<img src="Example/exchange.gif" style="height:200;width:auto">|  
 |TKSmileSwitch|<img src="Example/smile.gif" style="height:200;width:auto">|  
 |TKLiquidSwitch|<img src="Example/liquid.gif" style="height:200;width:auto">|  
 
 
 ## Release History
-
+* 1.3.0
+  support swift 3.0
 * 1.0.3
   Complete basic functions, add Cocoapod and Carthage support
 

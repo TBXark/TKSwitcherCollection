@@ -137,7 +137,7 @@
                                     <constraint firstItem="GJr-HY-1Iz" firstAttribute="centerY" secondItem="ARs-yq-gFQ" secondAttribute="centerY" id="u6F-Ma-efH"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Nl-xn-CAM" userLabel="cell">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Nl-xn-CAM" userLabel="cell">
                                 <rect key="frame" x="16" y="460" width="343" height="95"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TKLiquidSwitch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3c-Xc-6Fl" userLabel="type">

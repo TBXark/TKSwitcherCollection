@@ -11,7 +11,7 @@ import UIKit
 // Dedign by Oleg Frolov
 //https://dribbble.com/shots/2028065-Switcher-lll
 
-private class TKLiquidSwitch: TKBaseSwitch, TKViewScale {
+open class TKLiquidSwitch: TKBaseSwitch, TKViewScale {
     
     
     fileprivate var bubbleLayer = CAShapeLayer()
@@ -33,14 +33,19 @@ private class TKLiquidSwitch: TKBaseSwitch, TKViewScale {
         setUpView()
     }
     
+    
+    open override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        
+    }
+    
     override internal func setUpView() {
         super.setUpView()
         
         self.clipsToBounds = true
         
-        lineLayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: 30, width: self.bounds.width, height: 20 * sizeScale), cornerRadius: 10 * sizeScale).cgPath
+        lineLayer.path = UIBezierPath(roundedRect: CGRect(x: 0, y: (self.bounds.height - 20 * sizeScale) / 2, width: self.bounds.width, height: 20 * sizeScale), cornerRadius: 10 * sizeScale).cgPath
         lineLayer.fillColor = switchColor(true).cgColor
-        lineLayer.position = CGPoint(x: 0, y: -10 * sizeScale)
         self.layer.addSublayer(lineLayer)
         
         bubbleLayer.frame = self.bounds
@@ -94,27 +99,49 @@ private class TKLiquidSwitch: TKBaseSwitch, TKViewScale {
 
 // Getter
 extension TKLiquidSwitch{
+    
+    var bubbleSize: CGSize {
+        let lineH = 20 * sizeScale
+        let w =  lineH * 2 + bounds.height
+        let h = bounds.height
+        return CGSize(width: w, height: h)
+    }
 
     var bubbleShapePath : CGPath {
         let bubblePath = UIBezierPath()
-        let CGPointScaleMake = CGPointScaleMaker(self.sizeScale)
+        let size = bubbleSize
+        let sR = (size.width - size.height)/4
+        let lR = size.height/2
         
-        bubblePath.move(to: CGPointScaleMake(120.6, 34.75))
-        bubblePath.addCurve(to: CGPointScaleMake(150, 50), controlPoint1: CGPointScaleMake(125.45, 43.71), controlPoint2: CGPointScaleMake(136.79, 50))
-        bubblePath.addCurve(to: CGPointScaleMake(138.26, 51.75), controlPoint1: CGPointScaleMake(145.85, 50), controlPoint2: CGPointScaleMake(141.89, 50.62))
-        bubblePath.addCurve(to: CGPointScaleMake(120.6, 65.25), controlPoint1: CGPointScaleMake(130.31, 54.21), controlPoint2: CGPointScaleMake(123.93, 59.1))
-        bubblePath.addCurve(to: CGPointScaleMake(75, 100), controlPoint1: CGPointScaleMake(114.43, 85.41), controlPoint2: CGPointScaleMake(96.35, 100))
-        bubblePath.addCurve(to: CGPointScaleMake(29.4, 65.25), controlPoint1: CGPointScaleMake(53.65, 100), controlPoint2: CGPointScaleMake(35.57, 85.41))
-        bubblePath.addCurve(to: CGPointScaleMake(16.25, 53.48), controlPoint1: CGPointScaleMake(26.73, 60.31), controlPoint2: CGPointScaleMake(22.09, 56.19))
-        bubblePath.addCurve(to: CGPointScaleMake(11.74, 51.75), controlPoint1: CGPointScaleMake(14.82, 52.81), controlPoint2: CGPointScaleMake(13.31, 52.23))
-        bubblePath.addCurve(to: CGPointScaleMake(0, 50), controlPoint1: CGPointScaleMake(8.11, 50.62), controlPoint2: CGPointScaleMake(4.15, 50))
-        bubblePath.addCurve(to: CGPointScaleMake(11, 48.48), controlPoint1: CGPointScaleMake(3.87, 50), controlPoint2: CGPointScaleMake(7.57, 49.46))
-        bubblePath.addCurve(to: CGPointScaleMake(29.4, 34.75), controlPoint1: CGPointScaleMake(19.29, 46.09), controlPoint2: CGPointScaleMake(25.97, 41.09))
-        bubblePath.addCurve(to: CGPointScaleMake(38.05, 18.2), controlPoint1: CGPointScaleMake(31.27, 28.64), controlPoint2: CGPointScaleMake(34.23, 23.04))
-        bubblePath.addCurve(to: CGPointScaleMake(42.59, 13.21), controlPoint1: CGPointScaleMake(39.45, 16.43), controlPoint2: CGPointScaleMake(40.97, 14.76))
-        bubblePath.addCurve(to: CGPointScaleMake(75, 0), controlPoint1: CGPointScaleMake(51.11, 5.01), controlPoint2: CGPointScaleMake(62.5, 0))
-        bubblePath.addCurve(to: CGPointScaleMake(120.6, 34.75), controlPoint1: CGPointScaleMake(96.35, 0), controlPoint2: CGPointScaleMake(114.43, 14.59))
+        let l1 = CGPoint(x: sR, y: lR - sR)
+        let l2 = CGPoint(x: sR, y: lR + sR)
+        
+        let c1 = CGPoint(x: sR * 2 + lR, y: 0)
+        let c2 = CGPoint(x: sR * 2 + lR, y: lR * 2)
+        
+        let r1 = CGPoint(x: sR * 3 + lR * 2, y: lR - sR)
+        let r2 = CGPoint(x: sR * 3 + lR * 2, y: lR + sR)
+        
+        let o1 = CGPoint(x: (lR + sR * 2)/4, y: lR - sR)
+        let o2 = CGPoint(x: (lR + sR * 2)/4, y: lR + sR)
+        let o3 = CGPoint(x: (lR * 2 + sR * 4) - (lR + sR * 2)/4, y: lR - sR)
+        let o4 = CGPoint(x: (lR * 2 + sR * 4) - (lR + sR * 2)/4, y: lR + sR)
+        
+//        let cL = CGPoint(x: sR, y: lR)
+        let cC = CGPoint(x: sR * 2 + lR, y: lR)
+//        let cR = CGPoint(x: sR * 3 + lR * 2, y: lR)
+        
+        bubblePath.move(to: l1)
+        bubblePath.addQuadCurve(to: c1, controlPoint: o1)
+        bubblePath.addArc(withCenter: cC, radius: lR, startAngle: -CGFloat.pi/2, endAngle: CGFloat.pi*3/2, clockwise: true)
+        bubblePath.addQuadCurve(to: r1, controlPoint: o3)
+        bubblePath.addLine(to: r2)
+        
+        bubblePath.addQuadCurve(to: c2, controlPoint: o4)
+        bubblePath.addQuadCurve(to: l2, controlPoint: o2)
+        bubblePath.addLine(to: l1)
         bubblePath.close()
+        
         return bubblePath.cgPath
     }
     
@@ -132,7 +159,7 @@ extension TKLiquidSwitch{
         let w = self.bounds.width
         
         if isOn{
-            return CGPoint(x: 0, y: h/2)
+            return CGPoint(x: 0 + bubbleSize.width, y: h/2)
         }else{
             return CGPoint(x: w, y: h/2)
         }

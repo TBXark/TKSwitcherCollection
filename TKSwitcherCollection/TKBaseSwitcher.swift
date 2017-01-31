@@ -9,10 +9,7 @@
 import UIKit
 
 public typealias ValueChangeHook  = (_ value: Bool) -> Void
-internal func CGPointScaleMaker(_ scale: CGFloat) -> ((CGFloat, CGFloat) -> CGPoint) {
-    return { (x, y) in
-        return CGPoint(x: x * scale ,y: y * scale)}
-}
+
 
 protocol TKViewScale {}
 extension TKViewScale where Self: UIView  {

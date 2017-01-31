@@ -74,7 +74,7 @@ open class TKExchangeSwitch:  TKBaseSwitch, TKViewScale {
     }
     
     
-    override internal func changeValue() {
+    override public func changeValue() {
         super.changeValue()
         changeValueAnimate(isOn,duration: animateDuration)
     }

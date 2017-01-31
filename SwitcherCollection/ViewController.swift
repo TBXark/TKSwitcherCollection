@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TKSwitcherCollection
 
 var count : Int = 0
 

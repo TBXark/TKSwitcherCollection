@@ -26,12 +26,19 @@ open class TKBaseSwitch: UIControl {
     
     // MARK: - Property
     open var valueChange : ValueChangeHook?
-    internal var on : Bool = true
     open var animateDuration : Double = 0.4
 
-    func setOn(_ on: Bool, animate: Bool) {
-        if on != isOn {
-            changeValue()
+    open override var frame: CGRect {
+        didSet {
+            guard frame.size != oldValue.size else { return }
+            resetView()
+        }
+    }
+    
+    open override var bounds: CGRect {
+        didSet {
+            guard frame.size != oldValue.size else { return }
+            resetView()
         }
     }
     
@@ -39,18 +46,31 @@ open class TKBaseSwitch: UIControl {
     open var isOn : Bool{
         return on
     }
+    internal var on : Bool = true
+    
+    func setOn(_ on: Bool, animate: Bool) {
+        if on != isOn {
+            changeValue()
+        }
+    }
+
     
     convenience public init() {
         self.init(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
     }
 
+    internal func resetView() {
+        gestureRecognizers?.forEach(self.removeGestureRecognizer)
+        layer.sublayers?.forEach( { $0.removeFromSuperlayer()})
+        setUpView()
+    }
     
     internal func setUpView(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(TKBaseSwitch.changeValue))
         self.addGestureRecognizer(tap)        
     }
     
-    internal func changeValue(){
+    public func changeValue(){
         if valueChange != nil{
             valueChange!(isOn)
         }

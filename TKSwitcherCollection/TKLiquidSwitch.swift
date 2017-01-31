@@ -11,7 +11,7 @@ import UIKit
 // Dedign by Oleg Frolov
 //https://dribbble.com/shots/2028065-Switcher-lll
 
-open class TKLiquidSwitch: TKBaseSwitch, TKViewScale {
+private class TKLiquidSwitch: TKBaseSwitch, TKViewScale {
     
     
     fileprivate var bubbleLayer = CAShapeLayer()
@@ -51,7 +51,7 @@ open class TKLiquidSwitch: TKBaseSwitch, TKViewScale {
         
     }
     
-    override internal func changeValue() {
+    override public func changeValue() {
         super.changeValue()
         changeStateAnimate(isOn, duration: self.animateDuration)
     }
@@ -132,9 +132,9 @@ extension TKLiquidSwitch{
         let w = self.bounds.width
         
         if isOn{
-            return CGPoint(x: h*5/6, y: h/2)
+            return CGPoint(x: 0, y: h/2)
         }else{
-            return CGPoint(x: w - h/3, y: h/2)
+            return CGPoint(x: w, y: h/2)
         }
     }
 }

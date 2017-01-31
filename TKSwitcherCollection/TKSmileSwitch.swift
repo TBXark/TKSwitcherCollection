@@ -51,7 +51,7 @@ open class TKSmileSwitch:  TKBaseSwitch, TKViewScale {
     }
     
     // MARK: - Private Func
-    override internal func changeValue(){
+    override public func changeValue(){
         super.changeValue()
         let x = isOn ? 0 : (self.bounds.width - self.bounds.height)
         let frame = CGRect(x: x, y: 0, width: self.bounds.height, height: self.bounds.height)

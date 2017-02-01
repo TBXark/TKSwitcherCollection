@@ -19,7 +19,8 @@ class ViewController: UIViewController {
     }
     
     func animateSwitch(_ timer:Timer){
-        switchArray[count].changeValue()
+        let switcher = switchArray[count]
+        switcher.setOn(switcher.isOn, animate: true)
         count += 1
         if count  == (switchArray.count){
             count = 0

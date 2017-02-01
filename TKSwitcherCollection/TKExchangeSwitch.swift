@@ -10,10 +10,10 @@ import UIKit
 // Dedign by Oleg Frolov
 //https://dribbble.com/shots/2238916-Switcher-VI
 
-open class TKExchangeSwitch:  TKBaseSwitch, TKViewScale {
+open class TKExchangeSwitch:  TKBaseSwitch {
 
     // MARK: - Property
-    fileprivate var swichControl : TKExchangeCircleView!
+    fileprivate var swichControl : TKExchangeCircleView?
     fileprivate var backgroundLayer = CAShapeLayer()
     
     open var color = (background: UIColor(white: 0.95, alpha: 1),
@@ -37,15 +37,6 @@ open class TKExchangeSwitch:  TKBaseSwitch, TKViewScale {
     }
     
     // MARK: - Init
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-        setUpView()
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setUpView()
-    }
     
     // MARK: - Private Func
     override internal func setUpView(){
@@ -56,7 +47,7 @@ open class TKExchangeSwitch:  TKBaseSwitch, TKViewScale {
         
         let backLayerPath = UIBezierPath()
         backLayerPath.move(to: CGPoint(x: lineWidth, y: 0))
-        backLayerPath.addLine(to: CGPoint(x: self.bounds.width - 4 * lineWidth, y: 0))
+        backLayerPath.addLine(to: CGPoint(x: bounds.width - 4 * lineWidth, y: 0))
         
         backgroundLayer.position = position
         backgroundLayer.fillColor = color.background.cgColor
@@ -64,13 +55,14 @@ open class TKExchangeSwitch:  TKBaseSwitch, TKViewScale {
         backgroundLayer.lineWidth = self.bounds.height
         backgroundLayer.lineCap = kCALineCapRound
         backgroundLayer.path = backLayerPath.cgPath
-        self.layer.addSublayer(backgroundLayer)
+        layer.addSublayer(backgroundLayer)
         
-        let swichRadius = self.bounds.height - lineWidth
-        swichControl = TKExchangeCircleView(frame: CGRect(x: lineWidth/2, y: lineWidth/2, width: swichRadius, height: swichRadius))
+        let swichRadius = bounds.height - lineWidth
+        let swichControl = TKExchangeCircleView(frame: CGRect(x: lineWidth/2, y: lineWidth/2, width: swichRadius, height: swichRadius))
         swichControl.onLayer.fillColor = color.on.cgColor
         swichControl.offLayer.fillColor = color.off.cgColor
-        self.addSubview(swichControl)
+        addSubview(swichControl)
+        self.swichControl = swichControl
     }
     
     
@@ -83,7 +75,7 @@ open class TKExchangeSwitch:  TKBaseSwitch, TKViewScale {
     open func changeValueAnimate(_ turnOn:Bool, duration:Double){
         
         let keyTimes = [0,0.4,0.6,1]
-        var frame    = self.swichControl.frame
+        guard var frame = self.swichControl?.frame else { return }
         frame.origin.x = turnOn ? lineWidth/2 : (self.bounds.width - self.bounds.height + lineWidth/2)
         
         let swichControlStrokeStartAnim      = CAKeyframeAnimation(keyPath:"strokeStart")
@@ -105,10 +97,10 @@ open class TKExchangeSwitch:  TKBaseSwitch, TKViewScale {
         swichControlChangeStateAnim.duration = duration
         
         backgroundLayer.add(swichControlChangeStateAnim, forKey: "SwitchBackground")
-        swichControl.exchangeAnimate(turnOn, duration: duration)
+        swichControl?.exchangeAnimate(turnOn, duration: duration)
         
         UIView.animate(withDuration: duration, animations: { () -> Void in
-            self.swichControl.frame = frame
+            self.swichControl?.frame = frame
         }) 
     }
 }

@@ -8,23 +8,21 @@
 
 import UIKit
 
-public typealias ValueChangeHook  = (_ value: Bool) -> Void
-
-
-protocol TKViewScale {}
-extension TKViewScale where Self: UIView  {
-    var sizeScale: CGFloat {
-        return min(self.bounds.width, self.bounds.height)/100.0
-    }
-}
+public typealias TKSwitchValueChangeHook  = (_ value: Bool) -> Void
 
 // 自定义 Switch 基类
 open class TKBaseSwitch: UIControl {
     
     // MARK: - Property
-    open var valueChange : ValueChangeHook?
+    open var valueChange : TKSwitchValueChangeHook?
     open var animateDuration : Double = 0.4
-
+    open var isOn : Bool { return on }
+    internal var on : Bool = true
+    internal var sizeScale: CGFloat {
+        return min(self.bounds.width, self.bounds.height)/100.0
+    }
+    
+    
     open override var frame: CGRect {
         didSet {
             guard frame.size != oldValue.size else { return }
@@ -40,21 +38,32 @@ open class TKBaseSwitch: UIControl {
     }
     
     // MARK: - Getter
-    open var isOn : Bool{
-        return on
-    }
-    internal var on : Bool = true
+
     
-    func setOn(_ on: Bool, animate: Bool) {
-        if on != isOn {
-            changeValue()
-        }
+    final public func setOn(_ on: Bool, animate: Bool = true) {
+        guard on != isOn else { return }
+        changeValue()
+
     }
 
     
+    // MARK: - Init
     convenience public init() {
         self.init(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
     }
+    
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+        setUpView()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setUpView()
+    }
+
+    
+    // MARK: - Internal
 
     internal func resetView() {
         gestureRecognizers?.forEach(self.removeGestureRecognizer)
@@ -67,12 +76,10 @@ open class TKBaseSwitch: UIControl {
         self.addGestureRecognizer(tap)        
     }
     
-    public func changeValue(){
-        if valueChange != nil{
-            valueChange!(isOn)
-        }
-        sendActions(for: UIControlEvents.valueChanged);
+    internal func changeValue(){
         on = !on
+        valueChange?(!isOn)
+        sendActions(for: UIControlEvents.valueChanged);
     }
 
 }

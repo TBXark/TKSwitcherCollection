@@ -13,30 +13,18 @@ import UIKit
 
 
 
-open class TKSmileSwitch:  TKBaseSwitch, TKViewScale {
+open class TKSmileSwitch:  TKBaseSwitch {
     
     // MARK: - Poperty
     fileprivate var smileFace : TKSmileFaceView?
-    
-    
-    // MARK: - Init
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-        setUpView()
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setUpView()
-    }
-    
+        
     
     // MARK: - Init
     override internal func setUpView(){
         super.setUpView()
         let frame = CGRect(x: 0, y: 0, width: self.bounds.height, height: self.bounds.height)
         smileFace = TKSmileFaceView(frame:frame)
-        self.addSubview(smileFace!)
+        addSubview(smileFace!)
         
     }
     
@@ -53,28 +41,24 @@ open class TKSmileSwitch:  TKBaseSwitch, TKViewScale {
     // MARK: - Private Func
     override public func changeValue(){
         super.changeValue()
-        let x = isOn ? 0 : (self.bounds.width - self.bounds.height)
-        let frame = CGRect(x: x, y: 0, width: self.bounds.height, height: self.bounds.height)
-        self.smileFace!.faceType = self.isOn ? TKSmileFaceView.FaceType.happy : TKSmileFaceView.FaceType.sad
-        self.smileFace?.rotation(self.animateDuration, count: 2, clockwise: !isOn)
+        let x = isOn ? 0 : (bounds.width - bounds.height)
+        let frame = CGRect(x: x, y: 0, width: bounds.height, height: bounds.height)
+        self.smileFace!.faceType = isOn ? TKSmileFaceView.FaceType.happy : TKSmileFaceView.FaceType.sad
+        self.smileFace?.rotation(animateDuration, count: 2, clockwise: !isOn)
         UIView.animate(withDuration: self.animateDuration, animations: { () -> Void in
             self.smileFace?.frame = frame
             }, completion: { (complete) -> Void in
                 if complete{
                     self.smileFace?.eyeWinkAnimate(self.animateDuration/2)
                 }
-        }) 
-        
+        })
     }
-
-
-
 }
 
 
 
 // 脸
-private class TKSmileFaceView : UIView, TKViewScale {
+private class TKSmileFaceView : UIView {
     
     enum FaceType{
         case happy
@@ -89,6 +73,8 @@ private class TKSmileFaceView : UIView, TKViewScale {
         }
     }
     
+   
+    
 
     // MARK: - Property
     let rightEye : CAShapeLayer = CAShapeLayer()
@@ -98,25 +84,28 @@ private class TKSmileFaceView : UIView, TKViewScale {
     
     var faceType : FaceType = .happy{
         didSet{
-            let position : CGFloat = isHappy ? 20*sizeScale : 35*sizeScale
+            let position : CGFloat = isHappy ? 20 * sizeScale : 35 * sizeScale
             mouth.path = mouthPath.cgPath
-            mouth.frame = CGRect(x: 0,y: position , width: 60*sizeScale, height: 20*sizeScale)
+            mouth.frame = CGRect(x: 0,y: position , width: 60 * sizeScale, height: 20 * sizeScale)
             face.fillColor = faceType.toColor().cgColor
         }
     }
-
     
     // MARK: - Getter
     var isHappy : Bool{
         return (faceType == .happy)
     }
     
+    var sizeScale: CGFloat {
+        return min(self.bounds.width, self.bounds.height)/100.0
+    }
+    
     var mouthPath : UIBezierPath {
         get{
-            let point : CGFloat = isHappy ? 70*sizeScale : 10
+            let point : CGFloat = isHappy ? 70 * sizeScale : 10
             let path = UIBezierPath()
-            path.move(to: CGPoint(x: 30*sizeScale, y: 40*sizeScale))
-            path.addCurve(to: CGPoint(x: 70*sizeScale, y: 40*sizeScale), controlPoint1: CGPoint(x: 30*sizeScale, y: 40*sizeScale), controlPoint2: CGPoint(x: 50*sizeScale, y: point))
+            path.move(to: CGPoint(x: 30 * sizeScale, y: 40 * sizeScale))
+            path.addCurve(to: CGPoint(x: 70 * sizeScale, y: 40 * sizeScale), controlPoint1: CGPoint(x: 30 * sizeScale, y: 40 * sizeScale), controlPoint2: CGPoint(x: 50 * sizeScale, y: point))
             path.lineCapStyle = .round;
             return path
         }
@@ -136,31 +125,31 @@ private class TKSmileFaceView : UIView, TKViewScale {
     // MARK: - Private Func
     fileprivate func setupLayers(){
         
-        let facePath  = UIBezierPath(ovalIn:CGRect(x: 0, y: 0, width: 100*sizeScale, height: 100*sizeScale))
-        let eyePath   = UIBezierPath(ovalIn:CGRect(x: 0, y: 0, width: 20*sizeScale, height: 20*sizeScale))
+        let facePath  = UIBezierPath(ovalIn:CGRect(x: 0, y: 0, width: 100 * sizeScale, height: 100 * sizeScale))
+        let eyePath   = UIBezierPath(ovalIn:CGRect(x: 0, y: 0, width: 20 * sizeScale, height: 20 * sizeScale))
 
         
-        face.frame = CGRect(x: 0, y: 0, width: 100*sizeScale, height: 100*sizeScale)
+        face.frame = CGRect(x: 0, y: 0, width: 100 * sizeScale, height: 100 * sizeScale)
         face.path = facePath.cgPath;
         face.fillColor = faceType.toColor().cgColor
-        self.layer.addSublayer(face)
+        layer.addSublayer(face)
         
-        leftEye.frame = CGRect(x: 20*sizeScale, y: 28*sizeScale, width: 10*sizeScale, height: 10*sizeScale)
+        leftEye.frame = CGRect(x: 20 * sizeScale, y: 28 * sizeScale, width: 10 * sizeScale, height: 10 * sizeScale)
         leftEye.path = eyePath.cgPath;
         leftEye.fillColor = UIColor.white.cgColor
-        self.layer.addSublayer(leftEye)
+        layer.addSublayer(leftEye)
         
-        rightEye.frame = CGRect(x: 60*sizeScale, y: 28*sizeScale, width: 10*sizeScale, height: 10*sizeScale)
+        rightEye.frame = CGRect(x: 60 * sizeScale, y: 28 * sizeScale, width: 10 * sizeScale, height: 10 * sizeScale)
         rightEye.path = eyePath.cgPath;
         rightEye.fillColor = UIColor.white.cgColor
-        self.layer.addSublayer(rightEye)
+        layer.addSublayer(rightEye)
         
         mouth.path = mouthPath.cgPath
         mouth.strokeColor = UIColor.white.cgColor
         mouth.fillColor = UIColor.clear.cgColor
         mouth.lineCap = "round"
-        mouth.lineWidth = 10*sizeScale
-        self.layer.addSublayer(mouth)
+        mouth.lineWidth = 10 * sizeScale
+        layer.addSublayer(mouth)
 
         
         faceType = .happy
@@ -186,7 +175,7 @@ private class TKSmileFaceView : UIView, TKViewScale {
         rotationTransformAnim.keyTimes = [0, 1]
         rotationTransformAnim.isRemovedOnCompletion = false
         rotationTransformAnim.duration = duration
-        self.layer.add(rotationTransformAnim, forKey: "Rotation")
+        layer.add(rotationTransformAnim, forKey: "Rotation")
     }
 
 }

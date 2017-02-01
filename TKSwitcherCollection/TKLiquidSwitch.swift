@@ -11,33 +11,18 @@ import UIKit
 // Dedign by Oleg Frolov
 //https://dribbble.com/shots/2028065-Switcher-lll
 
-open class TKLiquidSwitch: TKBaseSwitch, TKViewScale {
+open class TKLiquidSwitch: TKBaseSwitch {
     
     
     fileprivate var bubbleLayer = CAShapeLayer()
     fileprivate var lineLayer   = CAShapeLayer()
     fileprivate var color = (on: UIColor(red:0.373,  green:0.843,  blue:0.596, alpha:1),
-        off: UIColor(red:0.871,  green:0.871,  blue:0.871, alpha:1)) {
+                            off: UIColor(red:0.871,  green:0.871,  blue:0.871, alpha:1)) {
         didSet {
             setUpView()
         }
     }
     
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-        setUpView()
-    }
-
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setUpView()
-    }
-    
-    
-    open override func draw(_ rect: CGRect) {
-        super.draw(rect)
-        
-    }
     
     override internal func setUpView() {
         super.setUpView()
@@ -56,43 +41,36 @@ open class TKLiquidSwitch: TKBaseSwitch, TKViewScale {
         
     }
     
-    override public func changeValue() {
+    override internal func changeValue() {
         super.changeValue()
-        changeStateAnimate(isOn, duration: self.animateDuration)
-    }
-    
-    
-    func changeStateAnimate(_ turnOn:Bool,duration:Double){
         
-        
-
         let bubbleTransformAnim      = CAKeyframeAnimation(keyPath:"transform")
         bubbleTransformAnim.values   = [NSValue(caTransform3D: CATransform3DIdentity),
                                         NSValue(caTransform3D: CATransform3DMakeScale(1, 0.8, 1)),
                                         NSValue(caTransform3D: CATransform3DMakeScale(0.8, 1, 1)),
                                         NSValue(caTransform3D: CATransform3DIdentity)]
         bubbleTransformAnim.keyTimes = [NSNumber(value: 0), NSNumber(value: 1.0 / 3.0), NSNumber(value: 2.0 / 3.0), NSNumber(value: 1)]
-        bubbleTransformAnim.duration = duration
+        bubbleTransformAnim.duration = animateDuration
         
         let bubblePositionAnim = CABasicAnimation(keyPath: "position")
         bubblePositionAnim.fromValue =  NSValue(cgPoint: bubblePosition(!isOn))
         bubblePositionAnim.toValue   = NSValue(cgPoint: bubblePosition(isOn))
-        bubblePositionAnim.duration  = duration
+        bubblePositionAnim.duration  = animateDuration
         
         let bubbleGroupAnim = CAAnimationGroup()
         bubbleGroupAnim.animations = [bubbleTransformAnim,bubblePositionAnim]
         bubbleGroupAnim.isRemovedOnCompletion = false
         bubbleGroupAnim.fillMode = kCAFillModeForwards
-        bubbleGroupAnim.duration = duration
+        bubbleGroupAnim.duration = animateDuration
         
-
+        
         bubbleLayer.add(bubbleGroupAnim, forKey: "Bubble")
         
         let color = switchColor(isOn).cgColor
-        UIView.animate(withDuration: duration, animations: { () -> Void in
+        UIView.animate(withDuration: animateDuration, animations: { () -> Void in
             self.lineLayer.fillColor = color
             self.bubbleLayer.fillColor = color
-        }) 
+        })
     }
 }
 
@@ -130,7 +108,7 @@ extension TKLiquidSwitch{
 //        let cL = CGPoint(x: sR, y: lR)
         let cC = CGPoint(x: sR * 2 + lR, y: lR)
 //        let cR = CGPoint(x: sR * 3 + lR * 2, y: lR)
-        
+
         bubblePath.move(to: l1)
         bubblePath.addQuadCurve(to: c1, controlPoint: o1)
         bubblePath.addArc(withCenter: cC, radius: lR, startAngle: -CGFloat.pi/2, endAngle: CGFloat.pi*3/2, clockwise: true)
@@ -145,7 +123,7 @@ extension TKLiquidSwitch{
         return bubblePath.cgPath
     }
     
-    func switchColor(_ isON:Bool)-> UIColor{
+    func switchColor(_ isOn: Bool)-> UIColor {
         if isOn{
             return color.on
         }
@@ -154,7 +132,7 @@ extension TKLiquidSwitch{
         }
     }
     
-    func bubblePosition(_ isOn:Bool) -> CGPoint{
+    func bubblePosition(_ isOn :Bool) -> CGPoint{
         let h = self.bounds.height
         let w = self.bounds.width
         

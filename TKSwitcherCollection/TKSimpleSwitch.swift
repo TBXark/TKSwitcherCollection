@@ -15,15 +15,31 @@ import UIKit
 
 
 public struct TKSimpleSwitchConfig {
-    var onColor     : UIColor = UIColor(red:0.341,  green:0.914,  blue:0.506, alpha:1)
-    var offColor    : UIColor = UIColor(white: 0.9, alpha: 1)
-    var lineColor   : UIColor = UIColor(white: 0.8, alpha: 1)
-    var circleColor : UIColor = UIColor.white
-    var lineSize : Double = 10
+    public var onColor : UIColor
+    public var offColor : UIColor
+    public var lineColor : UIColor
+    public var circleColor : UIColor
+    public var lineSize: Double
+    
+    
+    
+    public init(onColor     : UIColor = UIColor(red:0.341,  green:0.914,  blue:0.506, alpha:1),
+                offColor    : UIColor = UIColor(white: 0.9, alpha: 1),
+                lineColor   : UIColor = UIColor(white: 0.8, alpha: 1),
+                circleColor : UIColor = UIColor.white,
+                lineSize : Double = 10) {
+        self.onColor = onColor
+        self.offColor = offColor
+        self.lineColor = lineColor
+        self.circleColor = circleColor
+        self.lineSize = lineSize
+        
+        
+    }
 
 }
 
-open class TKSimpleSwitch:  TKBaseSwitch, TKViewScale {
+open class TKSimpleSwitch:  TKBaseSwitch {
     
     fileprivate var swichControl = CAShapeLayer()
     fileprivate var backgroundLayer = CAShapeLayer()
@@ -42,34 +58,23 @@ open class TKSimpleSwitch:  TKBaseSwitch, TKViewScale {
     }
     
     
-    override public init(frame: CGRect) {
-        super.init(frame: frame)
-        setUpView()
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setUpView()
-    }
-    
-    
     // 初始化 View
     override internal func setUpView() {
         super.setUpView()
         self.backgroundColor = UIColor.clear
-        let frame = CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height)
-        let radius = self.bounds.height/2 - lineWidth
+        let frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height)
+        let radius = bounds.height/2 - lineWidth
         let roundedRectPath = UIBezierPath(roundedRect:frame.insetBy(dx: lineWidth, dy: lineWidth) , cornerRadius:radius)
         backgroundLayer.fillColor = stateToFillColor(true)
         backgroundLayer.strokeColor = config.lineColor.cgColor
         backgroundLayer.lineWidth = lineWidth
         backgroundLayer.path = roundedRectPath.cgPath
-        self.layer.addSublayer(backgroundLayer)
+        layer.addSublayer(backgroundLayer)
         
-        let innerLineWidth =  self.bounds.height - lineWidth*3 + 1
+        let innerLineWidth =  bounds.height - lineWidth*3 + 1
         let swichControlPath = UIBezierPath()
         swichControlPath.move(to: CGPoint(x: lineWidth, y: 0))
-        swichControlPath.addLine(to: CGPoint(x: self.bounds.width - 2 * lineWidth - innerLineWidth + 1, y: 0))
+        swichControlPath.addLine(to: CGPoint(x: bounds.width - 2 * lineWidth - innerLineWidth + 1, y: 0))
         var point = backgroundLayer.position
         point.y += (radius + lineWidth)
         point.x += (radius)
@@ -80,7 +85,7 @@ open class TKSimpleSwitch:  TKBaseSwitch, TKViewScale {
         swichControl.strokeColor = config.circleColor.cgColor
         swichControl.lineWidth   = innerLineWidth
         swichControl.strokeEnd = 0.0001
-        self.layer.addSublayer(swichControl)
+        layer.addSublayer(swichControl)
         
 
     }

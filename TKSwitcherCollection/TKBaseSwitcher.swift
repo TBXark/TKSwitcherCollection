@@ -76,7 +76,7 @@ open class TKBaseSwitch: UIControl {
         self.addGestureRecognizer(tap)        
     }
     
-    internal func changeValue(){
+    @objc internal func changeValue(){
         on = !on
         valueChange?(!isOn)
         sendActions(for: UIControlEvents.valueChanged);

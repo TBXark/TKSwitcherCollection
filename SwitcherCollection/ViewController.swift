@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    func animateSwitch(_ timer:Timer){
+    @objc func animateSwitch(_ timer:Timer){
         let switcher = switchArray[count]
         switcher.setOn(switcher.isOn, animate: true)
         count += 1

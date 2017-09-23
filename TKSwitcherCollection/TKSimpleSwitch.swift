@@ -134,7 +134,7 @@ open class TKSimpleSwitch:  TKBaseSwitch {
         // 旋转动画
         if rotateWhenValueChange{
             UIView.animate(withDuration: duration, animations: { () -> Void in
-                self.transform = self.transform.rotated(by: CGFloat(M_PI))
+                self.transform = self.transform.rotated(by: CGFloat.pi)
             })
         }
         

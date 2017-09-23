@@ -171,7 +171,7 @@ private class TKSmileFaceView : UIView {
     
     func rotation(_ duration:Double,count:Int,clockwise:Bool){
         let rotationTransformAnim      = CAKeyframeAnimation(keyPath:"transform.rotation.z")
-        rotationTransformAnim.values   = [0,180 * CGFloat(M_PI/180) * CGFloat(count) * (clockwise ? 1 : -1)]
+        rotationTransformAnim.values   = [0,180 * CGFloat.pi/180 * CGFloat(count) * (clockwise ? 1 : -1)]
         rotationTransformAnim.keyTimes = [0, 1]
         rotationTransformAnim.isRemovedOnCompletion = false
         rotationTransformAnim.duration = duration

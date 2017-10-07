@@ -74,6 +74,10 @@ open class TKBaseSwitch: UIControl {
     internal func setUpView(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(TKBaseSwitch.changeValue))
         self.addGestureRecognizer(tap)        
+
+        for view in self.subviews {
+            view.removeFromSuperview()
+        }
     }
     
     @objc internal func changeValue(){

@@ -1,0 +1,16 @@
+PODS:
+  - TKSwitcherCollection (1.4.0)
+
+DEPENDENCIES:
+  - TKSwitcherCollection (from `../`)
+
+EXTERNAL SOURCES:
+  TKSwitcherCollection:
+    :path: ../
+
+SPEC CHECKSUMS:
+  TKSwitcherCollection: 4992ce6e9f5752777e1efb6ef8f778aae21001fc
+
+PODFILE CHECKSUM: 22d4901429738fec3b90d800b97955912bfd129c
+
+COCOAPODS: 1.4.0

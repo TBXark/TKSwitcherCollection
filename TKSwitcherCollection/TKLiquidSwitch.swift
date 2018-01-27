@@ -135,11 +135,12 @@ extension TKLiquidSwitch{
     func bubblePosition(_ isOn :Bool) -> CGPoint{
         let h = self.bounds.height
         let w = self.bounds.width
+        let bW = bubbleSize.width
         
         if isOn{
-            return CGPoint(x: 0 + bubbleSize.width, y: h/2)
+            return CGPoint(x: bW * 0.8, y: h/2)
         }else{
-            return CGPoint(x: w, y: h/2)
+            return CGPoint(x: w - bW*0.2, y: h/2)
         }
     }
 }

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SwitcherCollection.xcodeproj">
+      location = "self:TKSwitcherCollection.xcodeproj">
    </FileRef>
 </Workspace>

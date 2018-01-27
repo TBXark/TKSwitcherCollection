@@ -35,7 +35,7 @@ import TKSwitcherCollection
 #### Carthage
 Create a `Cartfile` that lists the framework and run `carthage update`. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/TKSwitcherCollection.framework` to an iOS project.
 
-```
+```shell
 github "tbxark/TKSwitcherCollection"
 ```
 #### Manually
@@ -46,14 +46,16 @@ github "tbxark/TKSwitcherCollection"
 
 |Class|Example|
 |---|---|
-|TKSimpleSwitch|<img src="Example/simple.gif" style="height:200;width:auto">|  
-|TKSimpleSwitch|<img src="Example/simple2.gif" style="height:200;width:auto">|  
-|TKExchangeSwitch|<img src="Example/exchange.gif" style="height:200;width:auto">|  
-|TKSmileSwitch|<img src="Example/smile.gif" style="height:200;width:auto">|  
-|TKLiquidSwitch|<img src="Example/liquid.gif" style="height:200;width:auto">|  
+|TKSimpleSwitch|<img src="Images/simple.gif" style="height:200;width:auto">|  
+|TKSimpleSwitch|<img src="Images/simple2.gif" style="height:200;width:auto">|  
+|TKExchangeSwitch|<img src="Images/exchange.gif" style="height:200;width:auto">|  
+|TKSmileSwitch|<img src="Images/smile.gif" style="height:200;width:auto">|  
+|TKLiquidSwitch|<img src="Images/liquid.gif" style="height:200;width:auto">|  
 
 
 ## Release History
+* 1.4.1
+  bugs fixed
 * 1.4.0
   support swift 4.0
 * 1.3.1

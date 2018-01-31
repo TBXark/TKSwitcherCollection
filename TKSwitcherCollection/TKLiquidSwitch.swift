@@ -11,13 +11,19 @@ import UIKit
 // Dedign by Oleg Frolov
 //https://dribbble.com/shots/2028065-Switcher-lll
 
+@IBDesignable
 open class TKLiquidSwitch: TKBaseSwitch {
     
     
-    fileprivate var bubbleLayer = CAShapeLayer()
-    fileprivate var lineLayer   = CAShapeLayer()
-    fileprivate var color = (on: UIColor(red:0.373,  green:0.843,  blue:0.596, alpha:1),
-                            off: UIColor(red:0.871,  green:0.871,  blue:0.871, alpha:1)) {
+    private var bubbleLayer = CAShapeLayer()
+    private var lineLayer   = CAShapeLayer()
+    @IBInspectable open var onColor = UIColor(red:0.373,  green:0.843,  blue:0.596, alpha:1){
+        didSet {
+            setUpView()
+        }
+    }
+    
+    @IBInspectable open var offColor = UIColor(red:0.871,  green:0.871,  blue:0.871, alpha:1) {
         didSet {
             setUpView()
         }
@@ -125,10 +131,10 @@ extension TKLiquidSwitch{
     
     func switchColor(_ isOn: Bool)-> UIColor {
         if isOn{
-            return color.on
+            return onColor
         }
         else{
-            return color.off
+            return offColor
         }
     }
     

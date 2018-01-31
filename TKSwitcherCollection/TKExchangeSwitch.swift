@@ -10,22 +10,33 @@ import UIKit
 // Dedign by Oleg Frolov
 //https://dribbble.com/shots/2238916-Switcher-VI
 
+@IBDesignable
 open class TKExchangeSwitch:  TKBaseSwitch {
 
     // MARK: - Property
-    fileprivate var swichControl : TKExchangeCircleView?
-    fileprivate var backgroundLayer = CAShapeLayer()
+    private var swichControl : TKExchangeCircleView?
+    private var backgroundLayer = CAShapeLayer()
     
-    open var color = (background: UIColor(white: 0.95, alpha: 1),
-                 on: UIColor(red:0.698,  green:1,  blue:0.353, alpha:1),
-                off: UIColor(red:0.812,  green:0.847,  blue:0.863, alpha:1)) {
-                    didSet {
-                    setUpView()
-                    }
+    @IBInspectable open var lineColor = UIColor(white: 0.95, alpha: 1) {
+        didSet {
+            setUpView()
+        }
+    }
+    
+    @IBInspectable open var onColor = UIColor(red:0.698,  green:1,  blue:0.353, alpha:1) {
+        didSet {
+            setUpView()
+        }
+    }
+    
+    @IBInspectable open var offColor = UIColor(red:0.812,  green:0.847,  blue:0.863, alpha:1) {
+        didSet {
+            setUpView()
+        }
     }
     
     
-    open var lineSize : Double = 20 {
+    @IBInspectable open var lineSize : Double = 20 {
         didSet {
             setUpView()
         }
@@ -50,8 +61,8 @@ open class TKExchangeSwitch:  TKBaseSwitch {
         backLayerPath.addLine(to: CGPoint(x: bounds.width - 4 * lineWidth, y: 0))
         
         backgroundLayer.position = position
-        backgroundLayer.fillColor = color.background.cgColor
-        backgroundLayer.strokeColor = color.background.cgColor
+        backgroundLayer.fillColor = lineColor.cgColor
+        backgroundLayer.strokeColor = lineColor.cgColor
         backgroundLayer.lineWidth = self.bounds.height
         backgroundLayer.lineCap = kCALineCapRound
         backgroundLayer.path = backLayerPath.cgPath
@@ -59,8 +70,8 @@ open class TKExchangeSwitch:  TKBaseSwitch {
         
         let swichRadius = bounds.height - lineWidth
         let swichControl = TKExchangeCircleView(frame: CGRect(x: lineWidth/2, y: lineWidth/2, width: swichRadius, height: swichRadius))
-        swichControl.onLayer.fillColor = color.on.cgColor
-        swichControl.offLayer.fillColor = color.off.cgColor
+        swichControl.onLayer.fillColor = onColor.cgColor
+        swichControl.offLayer.fillColor = offColor.cgColor
         addSubview(swichControl)
         self.swichControl = swichControl
     }

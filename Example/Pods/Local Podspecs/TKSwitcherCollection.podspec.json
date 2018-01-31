@@ -1,6 +1,6 @@
 {
   "name": "TKSwitcherCollection",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "summary": "A animate switcher cllection in Swift.",
   "license": {
     "type": "MIT License",
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/TBXark/TKSwitcherCollection.git",
-    "tag": "1.4.0"
+    "tag": "1.4.1"
   },
   "platforms": {
     "ios": "8.0"

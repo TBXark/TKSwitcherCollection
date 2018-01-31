@@ -11,17 +11,25 @@ import UIKit
 public typealias TKSwitchValueChangeHook  = (_ value: Bool) -> Void
 
 // 自定义 Switch 基类
+@IBDesignable
 open class TKBaseSwitch: UIControl {
     
     // MARK: - Property
     open var valueChange : TKSwitchValueChangeHook?
-    open var animateDuration : Double = 0.4
-    open var isOn : Bool { return on }
+    @IBInspectable open var animateDuration : Double = 0.4
+    @IBInspectable open var isOn : Bool {
+        set {
+            on = newValue
+        }
+        get {
+            return on
+        }
+    }
+
     internal var on : Bool = true
     internal var sizeScale: CGFloat {
         return min(self.bounds.width, self.bounds.height)/100.0
     }
-    
     
     open override var frame: CGRect {
         didSet {

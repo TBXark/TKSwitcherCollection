@@ -14,47 +14,44 @@ import UIKit
 
 
 
-public struct TKSimpleSwitchConfig {
-    public var onColor : UIColor
-    public var offColor : UIColor
-    public var lineColor : UIColor
-    public var circleColor : UIColor
-    public var lineSize: Double
-    
-    
-    
-    public init(onColor     : UIColor = UIColor(red:0.341,  green:0.914,  blue:0.506, alpha:1),
-                offColor    : UIColor = UIColor(white: 0.9, alpha: 1),
-                lineColor   : UIColor = UIColor(white: 0.8, alpha: 1),
-                circleColor : UIColor = UIColor.white,
-                lineSize : Double = 10) {
-        self.onColor = onColor
-        self.offColor = offColor
-        self.lineColor = lineColor
-        self.circleColor = circleColor
-        self.lineSize = lineSize
-        
-        
-    }
 
-}
-
+@IBDesignable
 open class TKSimpleSwitch:  TKBaseSwitch {
     
     fileprivate var swichControl = CAShapeLayer()
     fileprivate var backgroundLayer = CAShapeLayer()
     
     // 是否加旋转特效
-    open var rotateWhenValueChange = false
+    @IBInspectable open var rotateWhenValueChange: Bool = false
     
-    open var config = TKSimpleSwitchConfig() {
+    @IBInspectable open  var onColor : UIColor = UIColor(red:0.341,  green:0.914,  blue:0.506, alpha:1) {
+        didSet {
+            setUpView()
+        }
+    }
+    @IBInspectable open  var offColor : UIColor = UIColor(white: 0.9, alpha: 1) {
+        didSet {
+            setUpView()
+        }
+    }
+    @IBInspectable open  var lineColor : UIColor = UIColor(white: 0.8, alpha: 1) {
+        didSet {
+            setUpView()
+        }
+    }
+    @IBInspectable open  var circleColor : UIColor = UIColor.white {
+        didSet {
+            setUpView()
+        }
+    }
+    @IBInspectable open  var lineSize: Double = 10 {
         didSet {
             setUpView()
         }
     }
     
-    open var lineWidth : CGFloat {
-        return CGFloat(config.lineSize) * sizeScale
+    private var lineWidth : CGFloat {
+        return CGFloat(lineSize) * sizeScale
     }
     
     
@@ -66,7 +63,7 @@ open class TKSimpleSwitch:  TKBaseSwitch {
         let radius = bounds.height/2 - lineWidth
         let roundedRectPath = UIBezierPath(roundedRect:frame.insetBy(dx: lineWidth, dy: lineWidth) , cornerRadius:radius)
         backgroundLayer.fillColor = stateToFillColor(true)
-        backgroundLayer.strokeColor = config.lineColor.cgColor
+        backgroundLayer.strokeColor = lineColor.cgColor
         backgroundLayer.lineWidth = lineWidth
         backgroundLayer.path = roundedRectPath.cgPath
         layer.addSublayer(backgroundLayer)
@@ -82,7 +79,7 @@ open class TKSimpleSwitch:  TKBaseSwitch {
         swichControl.path = swichControlPath.cgPath
         swichControl.lineCap     = kCALineCapRound
         swichControl.fillColor   = nil
-        swichControl.strokeColor = config.circleColor.cgColor
+        swichControl.strokeColor = circleColor.cgColor
         swichControl.lineWidth   = innerLineWidth
         swichControl.strokeEnd = 0.0001
         layer.addSublayer(swichControl)
@@ -152,7 +149,7 @@ open class TKSimpleSwitch:  TKBaseSwitch {
     }
     
     fileprivate func stateToFillColor(_ isOn:Bool) -> CGColor {
-        return isOn ?  config.onColor.cgColor : config.offColor.cgColor
+        return isOn ?  onColor.cgColor : offColor.cgColor
     }
     
 }

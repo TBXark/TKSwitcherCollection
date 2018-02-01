@@ -54,6 +54,8 @@ github "tbxark/TKSwitcherCollection"
 
 
 ## Release History
+* 1.4.2
+    add `IBDesignable`/`IBInspectable` support
 * 1.4.1
   bugs fixed
 * 1.4.0

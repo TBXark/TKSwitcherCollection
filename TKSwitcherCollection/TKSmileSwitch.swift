@@ -16,7 +16,7 @@ import UIKit
 open class TKSmileSwitch:  TKBaseSwitch {
     
     // MARK: - Poperty
-    fileprivate var smileFace : TKSmileFaceView?
+    private var smileFace : TKSmileFaceView?
         
     
     // MARK: - Init
@@ -123,7 +123,7 @@ private class TKSmileFaceView : UIView {
     }
     
     // MARK: - Private Func
-    fileprivate func setupLayers(){
+    private func setupLayers(){
         
         let facePath  = UIBezierPath(ovalIn:CGRect(x: 0, y: 0, width: 100 * sizeScale, height: 100 * sizeScale))
         let eyePath   = UIBezierPath(ovalIn:CGRect(x: 0, y: 0, width: 20 * sizeScale, height: 20 * sizeScale))

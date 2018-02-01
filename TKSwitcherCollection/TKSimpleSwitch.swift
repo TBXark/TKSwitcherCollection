@@ -14,12 +14,39 @@ import UIKit
 
 
 
+@available(*, deprecated:3.0, message:"TKSimpleSwitchConfig is deprecated. ")
+public struct TKSimpleSwitchConfig {
+    public var onColor : UIColor
+    public var offColor : UIColor
+    public var lineColor : UIColor
+    public var circleColor : UIColor
+    public var lineSize: Double
+    
+    
+    
+    public init(onColor     : UIColor = UIColor(red:0.341,  green:0.914,  blue:0.506, alpha:1),
+                offColor    : UIColor = UIColor(white: 0.9, alpha: 1),
+                lineColor   : UIColor = UIColor(white: 0.8, alpha: 1),
+                circleColor : UIColor = UIColor.white,
+                lineSize : Double = 10) {
+        self.onColor = onColor
+        self.offColor = offColor
+        self.lineColor = lineColor
+        self.circleColor = circleColor
+        self.lineSize = lineSize
+        
+        
+    }
+    
+}
+
+
 
 @IBDesignable
 open class TKSimpleSwitch:  TKBaseSwitch {
     
-    fileprivate var swichControl = CAShapeLayer()
-    fileprivate var backgroundLayer = CAShapeLayer()
+    private var swichControl = CAShapeLayer()
+    private var backgroundLayer = CAShapeLayer()
     
     // 是否加旋转特效
     @IBInspectable open var rotateWhenValueChange: Bool = false
@@ -148,8 +175,40 @@ open class TKSimpleSwitch:  TKBaseSwitch {
         backgroundLayer.add(backgroundFillColorAnim, forKey: "Color")
     }
     
-    fileprivate func stateToFillColor(_ isOn:Bool) -> CGColor {
+    private func stateToFillColor(_ isOn:Bool) -> CGColor {
         return isOn ?  onColor.cgColor : offColor.cgColor
     }
     
+}
+
+
+// MARK: - Deprecated
+extension TKSimpleSwitch {
+    @available(*, deprecated:3.0, message:"config is deprecated. Use onColor, offColor, lineColor, circleColor, lineSize instead ")
+    open var config: TKSimpleSwitchConfig {
+        set {
+            if newValue.onColor != onColor {
+                onColor = newValue.onColor
+            }
+            if newValue.offColor != offColor {
+                offColor = newValue.offColor
+            }
+            if newValue.lineColor != lineColor {
+                lineColor = newValue.lineColor
+            }
+            if newValue.circleColor != circleColor {
+                lineColor = newValue.lineColor
+            }
+            if newValue.lineSize != lineSize {
+                lineSize = newValue.lineSize
+            }
+        }
+        get {
+            return TKSimpleSwitchConfig(onColor: onColor,
+                                        offColor: offColor,
+                                        lineColor: lineColor,
+                                        circleColor: circleColor,
+                                        lineSize: lineSize)
+        }
+    }
 }

@@ -116,6 +116,27 @@ open class TKExchangeSwitch:  TKBaseSwitch {
     }
 }
 
+// MARK: - Deprecated
+extension TKExchangeSwitch {
+    @available(*, deprecated:3.0, message:"color is deprecated. Use lineColor, onColor, offColor instead ")
+    var color: (background: UIColor, on: UIColor, off: UIColor) {
+        set {
+            if newValue.background != lineColor {
+                lineColor = newValue.background
+            }
+            if newValue.on != onColor {
+                onColor = newValue.on
+            }
+            if newValue.on != offColor {
+                offColor = newValue.off
+            }
+        }
+        get {
+            return (lineColor, onColor, offColor)
+        }
+    }
+}
+
 private class TKExchangeCircleView : UIView {
     
     // MARK: - Property

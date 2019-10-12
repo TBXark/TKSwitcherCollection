@@ -118,7 +118,7 @@ open class TKExchangeSwitch:  TKBaseSwitch {
 
 // MARK: - Deprecated
 extension TKExchangeSwitch {
-    @available(*, deprecated:3.0, message:"color is deprecated. Use lineColor, onColor, offColor instead ")
+    @available(*, deprecated, message:"color is deprecated. Use lineColor, onColor, offColor instead ")
     var color: (background: UIColor, on: UIColor, off: UIColor) {
         set {
             if newValue.background != lineColor {

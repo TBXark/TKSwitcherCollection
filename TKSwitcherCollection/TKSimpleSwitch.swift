@@ -14,7 +14,7 @@ import UIKit
 
 
 
-@available(*, deprecated:3.0, message:"TKSimpleSwitchConfig is deprecated. ")
+@available(*, deprecated, message:"TKSimpleSwitchConfig is deprecated. ")
 public struct TKSimpleSwitchConfig {
     public var onColor : UIColor
     public var offColor : UIColor
@@ -184,7 +184,7 @@ open class TKSimpleSwitch:  TKBaseSwitch {
 
 // MARK: - Deprecated
 extension TKSimpleSwitch {
-    @available(*, deprecated:3.0, message:"config is deprecated. Use onColor, offColor, lineColor, circleColor, lineSize instead ")
+    @available(*, deprecated, message:"config is deprecated. Use onColor, offColor, lineColor, circleColor, lineSize instead ")
     open var config: TKSimpleSwitchConfig {
         set {
             if newValue.onColor != onColor {

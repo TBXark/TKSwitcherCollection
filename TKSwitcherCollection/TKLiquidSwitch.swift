@@ -66,7 +66,7 @@ open class TKLiquidSwitch: TKBaseSwitch {
         let bubbleGroupAnim = CAAnimationGroup()
         bubbleGroupAnim.animations = [bubbleTransformAnim,bubblePositionAnim]
         bubbleGroupAnim.isRemovedOnCompletion = false
-        bubbleGroupAnim.fillMode = kCAFillModeForwards
+        bubbleGroupAnim.fillMode = CAMediaTimingFillMode.forwards
         bubbleGroupAnim.duration = animateDuration
         
         

@@ -91,7 +91,7 @@ open class TKBaseSwitch: UIControl {
     @objc internal func changeValue(){
         on = !on
         valueChange?(!isOn)
-        sendActions(for: UIControlEvents.valueChanged);
+        sendActions(for: UIControl.Event.valueChanged);
     }
 
 }

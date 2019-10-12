@@ -14,7 +14,7 @@ import UIKit
 
 
 
-@available(*, deprecated:3.0, message:"TKSimpleSwitchConfig is deprecated. ")
+@available(*, deprecated, message:"TKSimpleSwitchConfig is deprecated. ")
 public struct TKSimpleSwitchConfig {
     public var onColor : UIColor
     public var offColor : UIColor
@@ -104,7 +104,7 @@ open class TKSimpleSwitch:  TKBaseSwitch {
         point.x += (radius)
         swichControl.position = point
         swichControl.path = swichControlPath.cgPath
-        swichControl.lineCap     = kCALineCapRound
+        swichControl.lineCap     = CAShapeLayerLineCap.round
         swichControl.fillColor   = nil
         swichControl.strokeColor = circleColor.cgColor
         swichControl.lineWidth   = innerLineWidth
@@ -151,7 +151,7 @@ open class TKSimpleSwitch:  TKBaseSwitch {
                                             stateToFillColor(turnOn)]
         backgroundFillColorAnim.keyTimes = [0,0.5,0.51,1]
         backgroundFillColorAnim.duration = duration
-        backgroundFillColorAnim.fillMode = kCAFillModeForwards
+        backgroundFillColorAnim.fillMode = CAMediaTimingFillMode.forwards
         backgroundFillColorAnim.isRemovedOnCompletion = false
         
 
@@ -166,7 +166,7 @@ open class TKSimpleSwitch:  TKBaseSwitch {
         // 动画组
         let swichControlChangeStateAnim : CAAnimationGroup = CAAnimationGroup()
         swichControlChangeStateAnim.animations = [swichControlStrokeStartAnim,swichControlStrokeEndAnim]
-        swichControlChangeStateAnim.fillMode = kCAFillModeForwards
+        swichControlChangeStateAnim.fillMode = CAMediaTimingFillMode.forwards
         swichControlChangeStateAnim.isRemovedOnCompletion = false
         swichControlChangeStateAnim.duration = duration
 
@@ -184,7 +184,7 @@ open class TKSimpleSwitch:  TKBaseSwitch {
 
 // MARK: - Deprecated
 extension TKSimpleSwitch {
-    @available(*, deprecated:3.0, message:"config is deprecated. Use onColor, offColor, lineColor, circleColor, lineSize instead ")
+    @available(*, deprecated, message:"config is deprecated. Use onColor, offColor, lineColor, circleColor, lineSize instead ")
     open var config: TKSimpleSwitchConfig {
         set {
             if newValue.onColor != onColor {

@@ -64,7 +64,7 @@ open class TKExchangeSwitch:  TKBaseSwitch {
         backgroundLayer.fillColor = lineColor.cgColor
         backgroundLayer.strokeColor = lineColor.cgColor
         backgroundLayer.lineWidth = self.bounds.height
-        backgroundLayer.lineCap = kCALineCapRound
+        backgroundLayer.lineCap = CAShapeLayerLineCap.round
         backgroundLayer.path = backLayerPath.cgPath
         layer.addSublayer(backgroundLayer)
         
@@ -103,7 +103,7 @@ open class TKExchangeSwitch:  TKBaseSwitch {
         
         let swichControlChangeStateAnim : CAAnimationGroup = CAAnimationGroup()
         swichControlChangeStateAnim.animations = [swichControlStrokeStartAnim,swichControlStrokeEndAnim]
-        swichControlChangeStateAnim.fillMode = kCAFillModeForwards
+        swichControlChangeStateAnim.fillMode = CAMediaTimingFillMode.forwards
         swichControlChangeStateAnim.isRemovedOnCompletion = false
         swichControlChangeStateAnim.duration = duration
         
@@ -174,7 +174,7 @@ private class TKExchangeCircleView : UIView {
     
     func exchangeAnimate(_ turnOn:Bool,duration:Double){
     
-        let fillMode : String = kCAFillModeForwards
+        let fillMode : String = CAMediaTimingFillMode.forwards.rawValue
         
         let hideValues = [NSValue(caTransform3D: CATransform3DMakeScale(0, 0, 1)),
                           NSValue(caTransform3D: CATransform3DIdentity)]
@@ -196,7 +196,7 @@ private class TKExchangeCircleView : UIView {
         offLayerTransformAnim.keyTimes       = keyTimes as [NSNumber]?
         offLayerTransformAnim.duration       = duration
         offLayerTransformAnim.timingFunction = turnOn ? hideTimingFunction : showTimingFunction
-        offLayerTransformAnim.fillMode       = fillMode
+        offLayerTransformAnim.fillMode       = CAMediaTimingFillMode(rawValue: fillMode)
         offLayerTransformAnim.isRemovedOnCompletion = false
         
         ////OnLayer animation
@@ -205,7 +205,7 @@ private class TKExchangeCircleView : UIView {
         onLayerTransformAnim.keyTimes = keyTimes as [NSNumber]?
         onLayerTransformAnim.duration = duration
         offLayerTransformAnim.timingFunction = turnOn ? showTimingFunction : hideTimingFunction
-        onLayerTransformAnim.fillMode = fillMode
+        onLayerTransformAnim.fillMode = CAMediaTimingFillMode(rawValue: fillMode)
         onLayerTransformAnim.isRemovedOnCompletion = false
         
         

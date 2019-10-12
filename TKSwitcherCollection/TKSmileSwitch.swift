@@ -147,7 +147,7 @@ private class TKSmileFaceView : UIView {
         mouth.path = mouthPath.cgPath
         mouth.strokeColor = UIColor.white.cgColor
         mouth.fillColor = UIColor.clear.cgColor
-        mouth.lineCap = "round"
+        mouth.lineCap = CAShapeLayerLineCap(rawValue: "round")
         mouth.lineWidth = 10 * sizeScale
         layer.addSublayer(mouth)
 

@@ -18,13 +18,13 @@ open class TKLiquidSwitch: TKBaseSwitch {
     private var lineLayer   = CAShapeLayer()
     @IBInspectable open var onColor = UIColor(red: 0.373, green: 0.843, blue: 0.596, alpha: 1) {
         didSet {
-            setUpView()
+            resetView()
         }
     }
 
     @IBInspectable open var offColor = UIColor(red: 0.871, green: 0.871, blue: 0.871, alpha: 1) {
         didSet {
-            setUpView()
+            resetView()
         }
     }
 

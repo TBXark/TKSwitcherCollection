@@ -19,25 +19,25 @@ open class TKExchangeSwitch: TKBaseSwitch {
 
     @IBInspectable open var lineColor = UIColor(white: 0.95, alpha: 1) {
         didSet {
-            setUpView()
+            resetView()
         }
     }
 
     @IBInspectable open var onColor = UIColor(red: 0.34, green: 0.91, blue: 0.51, alpha: 1.00) {
         didSet {
-            setUpView()
+            resetView()
         }
     }
 
     @IBInspectable open var offColor = UIColor(red: 0.90, green: 0.90, blue: 0.90, alpha: 1.00) {
         didSet {
-            setUpView()
+            resetView()
         }
     }
 
     @IBInspectable open var lineSize: Double = 20 {
         didSet {
-            setUpView()
+            resetView()
         }
     }
 

@@ -46,27 +46,27 @@ open class TKSimpleSwitch: TKBaseSwitch {
 
     @IBInspectable open  var onColor: UIColor = UIColor(red: 0.341, green: 0.914, blue: 0.506, alpha: 1) {
         didSet {
-            setUpView()
+            resetView()
         }
     }
     @IBInspectable open  var offColor: UIColor = UIColor(white: 0.9, alpha: 1) {
         didSet {
-            setUpView()
+            resetView()
         }
     }
     @IBInspectable open  var lineColor: UIColor = UIColor(white: 0.8, alpha: 1) {
         didSet {
-            setUpView()
+            resetView()
         }
     }
     @IBInspectable open  var circleColor: UIColor = UIColor.white {
         didSet {
-            setUpView()
+            resetView()
         }
     }
     @IBInspectable open  var lineSize: Double = 10 {
         didSet {
-            setUpView()
+            resetView()
         }
     }
 

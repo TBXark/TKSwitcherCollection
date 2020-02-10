@@ -1,16 +1,16 @@
 PODS:
-  - TKSwitcherCollection (1.4.1)
+  - TKSwitcherCollection (1.4.3)
 
 DEPENDENCIES:
   - TKSwitcherCollection (from `../`)
 
 EXTERNAL SOURCES:
   TKSwitcherCollection:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  TKSwitcherCollection: 22ffd357b16193be738e646e9256ba1a26942e17
+  TKSwitcherCollection: 6805f52958a8b661cd583a538345618a26ff9263
 
 PODFILE CHECKSUM: 22d4901429738fec3b90d800b97955912bfd129c
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.8.4

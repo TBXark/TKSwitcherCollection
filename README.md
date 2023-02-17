@@ -1,4 +1,5 @@
 # TKSwitcherCollection
+
 > An animate switch collection
 
 ![Xcode 9.0+](https://img.shields.io/badge/Xcode-9.0%2B-blue.svg)
@@ -18,6 +19,7 @@
 ## Installation
 
 #### CocoaPods
+
 You can use [CocoaPods](http://cocoapods.org/) to install `TKSwitcherCollection` by adding it to your `Podfile`:
 
 ```ruby
@@ -32,30 +34,36 @@ To get the full benefits import `TKSwitcherCollection` wherever you import UIKit
 import UIKit
 import TKSwitcherCollection
 ```
+
 #### Carthage
-Create a `Cartfile` that lists the framework and run `carthage update`. Follow the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to add `$(SRCROOT)/Carthage/Build/iOS/TKSwitcherCollection.framework` to an iOS project.
+
+Create a `Cartfile` that lists the framework and run `carthage update`. Follow
+the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to
+add `$(SRCROOT)/Carthage/Build/iOS/TKSwitcherCollection.framework` to an iOS project.
 
 ```shell
 github "tbxark/TKSwitcherCollection"
 ```
+
 #### Manually
-1. Download and drop ```TKSwitcherCollection``` in your project.  
-2. Congratulations!  
+
+1. Download and drop ```TKSwitcherCollection``` in your project.
+2. Congratulations!
 
 ## Usage example
 
-|Class|Example|
-|---|---|
-|TKSimpleSwitch|<img src="Images/simple.gif" style="height:200;width:auto">|  
-|TKSimpleSwitch|<img src="Images/simple2.gif" style="height:200;width:auto">|  
-|TKExchangeSwitch|<img src="Images/exchange.gif" style="height:200;width:auto">|  
-|TKSmileSwitch|<img src="Images/smile.gif" style="height:200;width:auto">|  
-|TKLiquidSwitch|<img src="Images/liquid.gif" style="height:200;width:auto">|  
-
+| Class            | Example                                                       |
+|------------------|---------------------------------------------------------------|
+| TKSimpleSwitch   | <img src="Images/simple.gif" style="height:200;width:auto">   |  
+| TKSimpleSwitch   | <img src="Images/simple2.gif" style="height:200;width:auto">  |  
+| TKExchangeSwitch | <img src="Images/exchange.gif" style="height:200;width:auto"> |  
+| TKSmileSwitch    | <img src="Images/smile.gif" style="height:200;width:auto">    |  
+| TKLiquidSwitch   | <img src="Images/liquid.gif" style="height:200;width:auto">   |  
 
 ## Release History
+
 * 1.4.2
-    add `IBDesignable`/`IBInspectable` support
+  add `IBDesignable`/`IBInspectable` support
 * 1.4.1
   bugs fixed
 * 1.4.0
@@ -78,10 +86,17 @@ Distributed under the MIT license. See ``LICENSE`` for more information.
 [https://github.com/TBXark](https://github.com/TBXark)
 
 [swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
+
 [swift-url]: https://swift.org/
+
 [license-image]: https://img.shields.io/badge/License-MIT-blue.svg
+
 [license-url]: LICENSE
+
 [travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
+
 [travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
+
 [codebeat-image]: https://codebeat.co/badges/c19b47ea-2f9d-45df-8458-b2d952fe9dad
+
 [codebeat-url]: https://codebeat.co/projects/github-com-vsouza-awesomeios-com

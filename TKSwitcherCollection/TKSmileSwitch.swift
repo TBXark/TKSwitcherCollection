@@ -8,12 +8,12 @@
 
 import UIKit
 
-// Dedign by Oleg Frolov
+// Design by Oleg Frolov
 //https://dribbble.com/shots/2011284-Switcher-ll
 
 open class TKSmileSwitch: TKBaseSwitch {
 
-    // MARK: - Poperty
+    // MARK: - Property
     private var smileFace: TKSmileFaceView?
 
     // MARK: - Init
@@ -28,8 +28,8 @@ open class TKSmileSwitch: TKBaseSwitch {
     override open func draw(_ rect: CGRect) {
         let ctx = UIGraphicsGetCurrentContext()
         let lineWidth = 10 * sizeScale
-        let path = UIBezierPath(roundedRect: rect.insetBy(dx: lineWidth, dy: lineWidth), cornerRadius: rect.width/2)
-        ctx?.setLineWidth(lineWidth*2)
+        let path = UIBezierPath(roundedRect: rect.insetBy(dx: lineWidth, dy: lineWidth), cornerRadius: rect.width / 2)
+        ctx?.setLineWidth(lineWidth * 2)
         ctx?.addPath(path.cgPath)
         UIColor(white: 0.9, alpha: 1).setStroke()
         ctx?.strokePath()
@@ -42,10 +42,10 @@ open class TKSmileSwitch: TKBaseSwitch {
         self.smileFace?.rotation(animateDuration, count: 2, clockwise: !isOn)
         UIView.animate(withDuration: duration, animations: { () -> Void in
             self.smileFace?.frame = frame
-            }, completion: { (complete) -> Void in
-                if complete {
-                    self.smileFace?.eyeWinkAnimate(duration/2)
-                }
+        }, completion: { (complete) -> Void in
+            if complete {
+                self.smileFace?.eyeWinkAnimate(duration / 2)
+            }
         })
 
     }
@@ -57,6 +57,7 @@ private class TKSmileFaceView: UIView {
     enum FaceType {
         case happy
         case sad
+
         func toColor() -> UIColor {
             switch self {
             case .happy:
@@ -88,7 +89,7 @@ private class TKSmileFaceView: UIView {
     }
 
     var sizeScale: CGFloat {
-        return min(self.bounds.width, self.bounds.height)/100.0
+        return min(self.bounds.width, self.bounds.height) / 100.0
     }
 
     var mouthPath: UIBezierPath {
@@ -116,8 +117,8 @@ private class TKSmileFaceView: UIView {
     // MARK: - Private Func
     private func setupLayers() {
 
-        let facePath  = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 100 * sizeScale, height: 100 * sizeScale))
-        let eyePath   = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 20 * sizeScale, height: 20 * sizeScale))
+        let facePath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 100 * sizeScale, height: 100 * sizeScale))
+        let eyePath = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: 20 * sizeScale, height: 20 * sizeScale))
 
         face.frame = CGRect(x: 0, y: 0, width: 100 * sizeScale, height: 100 * sizeScale)
         face.path = facePath.cgPath
@@ -147,20 +148,20 @@ private class TKSmileFaceView: UIView {
 
     // MARK: - Animate
     func eyeWinkAnimate(_ duration: Double) {
-        let eyeleftTransformAnim      = CAKeyframeAnimation(keyPath: "transform")
-        eyeleftTransformAnim.values   = [NSValue(caTransform3D: CATransform3DIdentity),
-                                         NSValue(caTransform3D: CATransform3DMakeScale(1, 0.1, 1)),
-                                         NSValue(caTransform3D: CATransform3DIdentity)
-                                        ]
-        eyeleftTransformAnim.keyTimes = [0, 0.5, 1]
-        eyeleftTransformAnim.duration = duration
-        leftEye.add(eyeleftTransformAnim, forKey: "Wink")
-        rightEye.add(eyeleftTransformAnim, forKey: "Wink")
+        let eyeLeftTransformAnim = CAKeyframeAnimation(keyPath: "transform")
+        eyeLeftTransformAnim.values = [NSValue(caTransform3D: CATransform3DIdentity),
+                                       NSValue(caTransform3D: CATransform3DMakeScale(1, 0.1, 1)),
+                                       NSValue(caTransform3D: CATransform3DIdentity)
+        ]
+        eyeLeftTransformAnim.keyTimes = [0, 0.5, 1]
+        eyeLeftTransformAnim.duration = duration
+        leftEye.add(eyeLeftTransformAnim, forKey: "Wink")
+        rightEye.add(eyeLeftTransformAnim, forKey: "Wink")
     }
 
     func rotation(_ duration: Double, count: Int, clockwise: Bool) {
-        let rotationTransformAnim      = CAKeyframeAnimation(keyPath: "transform.rotation.z")
-        rotationTransformAnim.values   = [0, 180 * CGFloat.pi/180 * CGFloat(count) * (clockwise ? 1 : -1)]
+        let rotationTransformAnim = CAKeyframeAnimation(keyPath: "transform.rotation.z")
+        rotationTransformAnim.values = [0, 180 * CGFloat.pi / 180 * CGFloat(count) * (clockwise ? 1 : -1)]
         rotationTransformAnim.keyTimes = [0, 1]
         rotationTransformAnim.isRemovedOnCompletion = false
         rotationTransformAnim.duration = duration

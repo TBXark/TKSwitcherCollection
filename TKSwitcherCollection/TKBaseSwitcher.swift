@@ -8,7 +8,7 @@
 
 import UIKit
 
-public typealias TKSwitchValueChangeHook  = (_ value: Bool) -> Void
+public typealias TKSwitchValueChangeHook = (_ value: Bool) -> Void
 
 // 自定义 Switch 基类
 @IBDesignable
@@ -28,19 +28,23 @@ open class TKBaseSwitch: UIControl {
 
     internal var on: Bool = true
     internal var sizeScale: CGFloat {
-        return min(self.bounds.width, self.bounds.height)/100.0
+        return min(self.bounds.width, self.bounds.height) / 100.0
     }
 
     open override var frame: CGRect {
         didSet {
-            guard frame.size != oldValue.size else { return }
+            guard frame.size != oldValue.size else {
+                return
+            }
             resetView()
         }
     }
 
     open override var bounds: CGRect {
         didSet {
-            guard frame.size != oldValue.size else { return }
+            guard frame.size != oldValue.size else {
+                return
+            }
             resetView()
         }
     }
@@ -48,7 +52,9 @@ open class TKBaseSwitch: UIControl {
     // MARK: - Getter
 
     final public func setOn(_ on: Bool, animate: Bool = true) {
-        guard on != isOn else { return }
+        guard on != isOn else {
+            return
+        }
         toggleValue()
     }
 
@@ -71,7 +77,7 @@ open class TKBaseSwitch: UIControl {
 
     internal func resetView() {
         gestureRecognizers?.forEach(self.removeGestureRecognizer)
-        layer.sublayers?.forEach({ $0.removeFromSuperlayer()})
+        layer.sublayers?.forEach({ $0.removeFromSuperlayer() })
         setUpView()
     }
 
@@ -90,7 +96,7 @@ open class TKBaseSwitch: UIControl {
         sendActions(for: UIControlEvents.valueChanged)
         changeValueAnimate(isOn, duration: animateDuration)
     }
-    
+
     internal func changeValueAnimate(_ value: Bool, duration: Double) {
     }
 

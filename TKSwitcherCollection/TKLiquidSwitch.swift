@@ -8,14 +8,14 @@
 
 import UIKit
 
-// Dedign by Oleg Frolov
+// Design by Oleg Frolov
 //https://dribbble.com/shots/2028065-Switcher-lll
 
 @IBDesignable
 open class TKLiquidSwitch: TKBaseSwitch {
 
     private var bubbleLayer = CAShapeLayer()
-    private var lineLayer   = CAShapeLayer()
+    private var lineLayer = CAShapeLayer()
     @IBInspectable open var onColor = UIColor(red: 0.373, green: 0.843, blue: 0.596, alpha: 1) {
         didSet {
             resetView()
@@ -46,18 +46,18 @@ open class TKLiquidSwitch: TKBaseSwitch {
     }
 
     override func changeValueAnimate(_ value: Bool, duration: Double) {
-        let bubbleTransformAnim      = CAKeyframeAnimation(keyPath: "transform")
-        bubbleTransformAnim.values   = [NSValue(caTransform3D: CATransform3DIdentity),
-                                        NSValue(caTransform3D: CATransform3DMakeScale(1, 0.8, 1)),
-                                        NSValue(caTransform3D: CATransform3DMakeScale(0.8, 1, 1)),
-                                        NSValue(caTransform3D: CATransform3DIdentity)]
+        let bubbleTransformAnim = CAKeyframeAnimation(keyPath: "transform")
+        bubbleTransformAnim.values = [NSValue(caTransform3D: CATransform3DIdentity),
+                                      NSValue(caTransform3D: CATransform3DMakeScale(1, 0.8, 1)),
+                                      NSValue(caTransform3D: CATransform3DMakeScale(0.8, 1, 1)),
+                                      NSValue(caTransform3D: CATransform3DIdentity)]
         bubbleTransformAnim.keyTimes = [NSNumber(value: 0), NSNumber(value: 1.0 / 3.0), NSNumber(value: 2.0 / 3.0), NSNumber(value: 1)]
         bubbleTransformAnim.duration = duration
 
         let bubblePositionAnim = CABasicAnimation(keyPath: "position")
-        bubblePositionAnim.fromValue =  NSValue(cgPoint: bubblePosition(!isOn))
-        bubblePositionAnim.toValue   = NSValue(cgPoint: bubblePosition(isOn))
-        bubblePositionAnim.duration  = duration
+        bubblePositionAnim.fromValue = NSValue(cgPoint: bubblePosition(!isOn))
+        bubblePositionAnim.toValue = NSValue(cgPoint: bubblePosition(isOn))
+        bubblePositionAnim.duration = duration
 
         let bubbleGroupAnim = CAAnimationGroup()
         bubbleGroupAnim.animations = [bubbleTransformAnim, bubblePositionAnim]
@@ -81,7 +81,7 @@ extension TKLiquidSwitch {
 
     var bubbleSize: CGSize {
         let lineH = 20 * sizeScale
-        let w =  lineH * 2 + bounds.height
+        let w = lineH * 2 + bounds.height
         let h = bounds.height
         return CGSize(width: w, height: h)
     }
@@ -89,8 +89,8 @@ extension TKLiquidSwitch {
     var bubbleShapePath: CGPath {
         let bubblePath = UIBezierPath()
         let size = bubbleSize
-        let sR = (size.width - size.height)/4
-        let lR = size.height/2
+        let sR = (size.width - size.height) / 4
+        let lR = size.height / 2
 
         let l1 = CGPoint(x: sR, y: lR - sR)
         let l2 = CGPoint(x: sR, y: lR + sR)
@@ -101,10 +101,10 @@ extension TKLiquidSwitch {
         let r1 = CGPoint(x: sR * 3 + lR * 2, y: lR - sR)
         let r2 = CGPoint(x: sR * 3 + lR * 2, y: lR + sR)
 
-        let o1 = CGPoint(x: (lR + sR * 2)/4, y: lR - sR)
-        let o2 = CGPoint(x: (lR + sR * 2)/4, y: lR + sR)
-        let o3 = CGPoint(x: (lR * 2 + sR * 4) - (lR + sR * 2)/4, y: lR - sR)
-        let o4 = CGPoint(x: (lR * 2 + sR * 4) - (lR + sR * 2)/4, y: lR + sR)
+        let o1 = CGPoint(x: (lR + sR * 2) / 4, y: lR - sR)
+        let o2 = CGPoint(x: (lR + sR * 2) / 4, y: lR + sR)
+        let o3 = CGPoint(x: (lR * 2 + sR * 4) - (lR + sR * 2) / 4, y: lR - sR)
+        let o4 = CGPoint(x: (lR * 2 + sR * 4) - (lR + sR * 2) / 4, y: lR + sR)
 
 //        let cL = CGPoint(x: sR, y: lR)
         let cC = CGPoint(x: sR * 2 + lR, y: lR)
@@ -112,7 +112,7 @@ extension TKLiquidSwitch {
 
         bubblePath.move(to: l1)
         bubblePath.addQuadCurve(to: c1, controlPoint: o1)
-        bubblePath.addArc(withCenter: cC, radius: lR, startAngle: -CGFloat.pi/2, endAngle: CGFloat.pi*3/2, clockwise: true)
+        bubblePath.addArc(withCenter: cC, radius: lR, startAngle: -CGFloat.pi / 2, endAngle: CGFloat.pi * 3 / 2, clockwise: true)
         bubblePath.addQuadCurve(to: r1, controlPoint: o3)
         bubblePath.addLine(to: r2)
 
@@ -138,9 +138,9 @@ extension TKLiquidSwitch {
         let bW = bubbleSize.width
 
         if isOn {
-            return CGPoint(x: bW * 0.8, y: h/2)
+            return CGPoint(x: bW * 0.8, y: h / 2)
         } else {
-            return CGPoint(x: w - bW*0.2, y: h/2)
+            return CGPoint(x: w - bW * 0.2, y: h / 2)
         }
     }
 }

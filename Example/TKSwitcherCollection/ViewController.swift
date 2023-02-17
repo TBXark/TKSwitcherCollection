@@ -14,6 +14,7 @@ var count: Int = 0
 class ViewController: UIViewController {
 
     @IBOutlet var switchArray: [TKBaseSwitch]!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         for switcher in switchArray {
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
         let switcher = switchArray[count]
         switcher.setOn(switcher.isOn, animate: true)
         count += 1
-        if count  == (switchArray.count) {
+        if count == (switchArray.count) {
             count = 0
             timer.invalidate()
             Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(ViewController.animateSwitch(_:)), userInfo: nil, repeats: true)

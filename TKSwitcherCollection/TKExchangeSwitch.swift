@@ -7,14 +7,15 @@
 //
 
 import UIKit
-// Dedign by Oleg Frolov
+
+// Design by Oleg Frolov
 //https://dribbble.com/shots/2238916-Switcher-VI
 
 @IBDesignable
 open class TKExchangeSwitch: TKBaseSwitch {
 
     // MARK: - Property
-    private var swichControl: TKExchangeCircleView?
+    private var switchControl: TKExchangeCircleView?
     private var backgroundLayer = CAShapeLayer()
 
     @IBInspectable open var lineColor = UIColor(white: 0.95, alpha: 1) {
@@ -52,7 +53,7 @@ open class TKExchangeSwitch: TKBaseSwitch {
     override internal func setUpView() {
         super.setUpView()
 
-        let radius = self.bounds.height/2 - lineWidth
+        let radius = self.bounds.height / 2 - lineWidth
         let position = CGPoint(x: radius, y: radius + lineWidth)
 
         let backLayerPath = UIBezierPath()
@@ -67,51 +68,53 @@ open class TKExchangeSwitch: TKBaseSwitch {
         backgroundLayer.path = backLayerPath.cgPath
         layer.addSublayer(backgroundLayer)
 
-        let swichRadius = bounds.height - lineWidth
-        let swichControl = TKExchangeCircleView(frame: CGRect(x: lineWidth/2, y: lineWidth/2, width: swichRadius, height: swichRadius))
-        swichControl.onLayer.fillColor = onColor.cgColor
-        swichControl.offLayer.fillColor = offColor.cgColor
-        addSubview(swichControl)
-        self.swichControl = swichControl
+        let switchRadius = bounds.height - lineWidth
+        let switchControl = TKExchangeCircleView(frame: CGRect(x: lineWidth / 2, y: lineWidth / 2, width: switchRadius, height: switchRadius))
+        switchControl.onLayer.fillColor = onColor.cgColor
+        switchControl.offLayer.fillColor = offColor.cgColor
+        addSubview(switchControl)
+        self.switchControl = switchControl
     }
 
     // MARK: - Animate
     override func changeValueAnimate(_ value: Bool, duration: Double) {
         self.on = value
         let keyTimes = [0, 0.4, 0.6, 1]
-        guard var frame = self.swichControl?.frame else { return }
-        frame.origin.x = value ? lineWidth/2 : (self.bounds.width - self.bounds.height + lineWidth/2)
+        guard var frame = self.switchControl?.frame else {
+            return
+        }
+        frame.origin.x = value ? lineWidth / 2 : (self.bounds.width - self.bounds.height + lineWidth / 2)
 
-        let swichControlStrokeStartAnim      = CAKeyframeAnimation(keyPath: "strokeStart")
-        swichControlStrokeStartAnim.values   = [0, 0.45, 0.45, 0]
-        swichControlStrokeStartAnim.keyTimes = keyTimes as [NSNumber]?
-        swichControlStrokeStartAnim.duration = duration
-        swichControlStrokeStartAnim.isRemovedOnCompletion = true
+        let switchControlStrokeStartAnim = CAKeyframeAnimation(keyPath: "strokeStart")
+        switchControlStrokeStartAnim.values = [0, 0.45, 0.45, 0]
+        switchControlStrokeStartAnim.keyTimes = keyTimes as [NSNumber]?
+        switchControlStrokeStartAnim.duration = duration
+        switchControlStrokeStartAnim.isRemovedOnCompletion = true
 
-        let swichControlStrokeEndAnim      = CAKeyframeAnimation(keyPath: "strokeEnd")
-        swichControlStrokeEndAnim.values   = [1, 0.55, 0.55, 1]
-        swichControlStrokeEndAnim.keyTimes = keyTimes as [NSNumber]?
-        swichControlStrokeEndAnim.duration = duration
-        swichControlStrokeEndAnim.isRemovedOnCompletion = true
+        let switchControlStrokeEndAnim = CAKeyframeAnimation(keyPath: "strokeEnd")
+        switchControlStrokeEndAnim.values = [1, 0.55, 0.55, 1]
+        switchControlStrokeEndAnim.keyTimes = keyTimes as [NSNumber]?
+        switchControlStrokeEndAnim.duration = duration
+        switchControlStrokeEndAnim.isRemovedOnCompletion = true
 
-        let swichControlChangeStateAnim: CAAnimationGroup = CAAnimationGroup()
-        swichControlChangeStateAnim.animations = [swichControlStrokeStartAnim, swichControlStrokeEndAnim]
-        swichControlChangeStateAnim.fillMode = kCAFillModeForwards
-        swichControlChangeStateAnim.isRemovedOnCompletion = false
-        swichControlChangeStateAnim.duration = duration
+        let switchControlChangeStateAnim: CAAnimationGroup = CAAnimationGroup()
+        switchControlChangeStateAnim.animations = [switchControlStrokeStartAnim, switchControlStrokeEndAnim]
+        switchControlChangeStateAnim.fillMode = kCAFillModeForwards
+        switchControlChangeStateAnim.isRemovedOnCompletion = false
+        switchControlChangeStateAnim.duration = duration
 
-        backgroundLayer.add(swichControlChangeStateAnim, forKey: "SwitchBackground")
-        swichControl?.exchangeAnimate(value, duration: duration)
+        backgroundLayer.add(switchControlChangeStateAnim, forKey: "SwitchBackground")
+        switchControl?.exchangeAnimate(value, duration: duration)
 
         UIView.animate(withDuration: duration, animations: { () -> Void in
-            self.swichControl?.frame = frame
+            self.switchControl?.frame = frame
         })
     }
 }
 
 // MARK: - Deprecated
 extension TKExchangeSwitch {
-    @available(*, deprecated, message:"color is deprecated. Use lineColor, onColor, offColor instead ")
+    @available(*, deprecated, message: "color is deprecated. Use lineColor, onColor, offColor instead ")
     var color: (background: UIColor, on: UIColor, off: UIColor) {
         set {
             if newValue.background != lineColor {
@@ -157,7 +160,7 @@ private class TKExchangeCircleView: UIView {
         self.layer.addSublayer(offLayer)
 
         onLayer.frame = CGRect(x: 0, y: 0, width: radius, height: radius)
-        onLayer.path =  UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: radius, height: radius)).cgPath
+        onLayer.path = UIBezierPath(ovalIn: CGRect(x: 0, y: 0, width: radius, height: radius)).cgPath
         self.layer.addSublayer(onLayer)
     }
 
@@ -174,23 +177,23 @@ private class TKExchangeCircleView: UIView {
         let showTimingFunction = CAMediaTimingFunction(controlPoints: 0, 0, 0, 1)
         let hideTimingFunction = CAMediaTimingFunction(controlPoints: 0, 0, 1, 1)
 
-        let keyTimes   = [0, 1]
+        let keyTimes = [0, 1]
 
         offLayer.zPosition = value ? 1 : 0
         onLayer.zPosition = value ? 0 : 1
 
         ////OffLayer animation
-        let offLayerTransformAnim            = CAKeyframeAnimation(keyPath: "transform")
-        offLayerTransformAnim.values         = value ? hideValues : showValues
-        offLayerTransformAnim.keyTimes       = keyTimes as [NSNumber]?
-        offLayerTransformAnim.duration       = duration
+        let offLayerTransformAnim = CAKeyframeAnimation(keyPath: "transform")
+        offLayerTransformAnim.values = value ? hideValues : showValues
+        offLayerTransformAnim.keyTimes = keyTimes as [NSNumber]?
+        offLayerTransformAnim.duration = duration
         offLayerTransformAnim.timingFunction = value ? hideTimingFunction : showTimingFunction
-        offLayerTransformAnim.fillMode       = fillMode
+        offLayerTransformAnim.fillMode = fillMode
         offLayerTransformAnim.isRemovedOnCompletion = false
 
         ////OnLayer animation
-        let onLayerTransformAnim      = CAKeyframeAnimation(keyPath: "transform")
-        onLayerTransformAnim.values   = value ? showValues : hideValues
+        let onLayerTransformAnim = CAKeyframeAnimation(keyPath: "transform")
+        onLayerTransformAnim.values = value ? showValues : hideValues
         onLayerTransformAnim.keyTimes = keyTimes as [NSNumber]?
         onLayerTransformAnim.duration = duration
         offLayerTransformAnim.timingFunction = value ? showTimingFunction : hideTimingFunction

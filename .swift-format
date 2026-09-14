@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "indentation": {
+    "spaces": 4
+  },
+  "lines": {
+    "maxWidth": 120
+  }
+}

@@ -1,102 +1,132 @@
 # TKSwitcherCollection
 
-> An animate switch collection
+> A collection of animated switches for UIKit and SwiftUI.
 
-![Xcode 9.0+](https://img.shields.io/badge/Xcode-9.0%2B-blue.svg)
-![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
-![Swift 4.0+](https://img.shields.io/badge/Swift-4.0%2B-orange.svg)
-[![Build Status](https://travis-ci.org/TBXark/TKSwitcherCollection.svg?branch=master)](https://travis-ci.org/TBXark/TKSwitcherCollection)
-[![CocoaPods](http://img.shields.io/cocoapods/v/TKSwitcherCollection.svg?style=flat)](http://cocoapods.org/?q=TKSwitcherCollection)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](https://raw.githubusercontent.com/TBXark/TKSwitcherCollection/master/LICENSE)
+English | [简体中文](README.zh-CN.md)
+
+![iOS 13.0+](https://img.shields.io/badge/iOS-13.0%2B-blue.svg)
+![Swift 6](https://img.shields.io/badge/Swift-6-orange.svg)
+![Swift Package Manager](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)
+[![License MIT](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](LICENSE)
+
+| Switch                    | Example                                                     |
+|---------------------------|-------------------------------------------------------------|
+| `TKSimpleSwitch`          | <img src="Images/simple.gif" style="height:200;width:auto">  |
+| `TKSimpleSwitch` (rotate) | <img src="Images/simple2.gif" style="height:200;width:auto"> |
+| `TKExchangeSwitch`        | <img src="Images/exchange.gif" style="height:200;width:auto">|
+| `TKSmileSwitch`           | <img src="Images/smile.gif" style="height:200;width:auto">   |
+| `TKLiquidSwitch`          | <img src="Images/liquid.gif" style="height:200;width:auto">  |
+
+Switch designs by [Oleg Frolov](https://dribbble.com/OlegFrolov).
+
+## Features
+
+- Four animated switches: simple (with optional rotate effect), exchange, smile and liquid.
+- UIKit controls built on `UIControl`: target/action and `@IBDesignable` / `@IBInspectable` support.
+- SwiftUI wrappers with `Binding<Bool>` sharing the same animations.
+- Light / dark mode friendly when configured with semantic colors.
 
 ## Requirements
 
-- iOS 8.0+
-- Xcode 9.0
-- Swift 4.0
+- iOS 13.0+
+- Swift 6 toolchain (Xcode 16+)
 
 ## Installation
 
-#### CocoaPods
+### Swift Package Manager
 
-You can use [CocoaPods](http://cocoapods.org/) to install `TKSwitcherCollection` by adding it to your `Podfile`:
+In Xcode, select **File > Add Package Dependencies...** and enter the package URL:
+
+```
+https://github.com/TBXark/TKSwitcherCollection
+```
+
+Or add it to your `Package.swift`:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/TBXark/TKSwitcherCollection.git", from: "2.0.0")
+]
+```
+
+### CocoaPods
 
 ```ruby
-platform :ios, '8.0'
-use_frameworks!
-pod 'TKSwitcherCollection'
+pod 'TKSwitcherCollection', '~> 2.0'
 ```
 
-To get the full benefits import `TKSwitcherCollection` wherever you import UIKit
+## Usage
 
-``` swift
+### UIKit
+
+Every switch is a `UIControl` subclass. A tap toggles the switch and sends `.valueChanged`.
+
+```swift
 import UIKit
 import TKSwitcherCollection
+
+let switcher = TKSimpleSwitch(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
+switcher.onColor = .systemGreen
+switcher.rotateWhenValueChange = true
+
+// Closure callback: fired when the user toggles, with the new value
+switcher.onValueChange = { value in
+    print("switch -> \(value)")
+}
+
+// Or use target/action
+switcher.addTarget(self, action: #selector(handleValueChanged(_:)), for: .valueChanged)
+
+// Programmatic changes do not fire events (same as UISwitch.setOn(_:animated:))
+switcher.isOn = false            // updates immediately, no animation
+switcher.setOn(true)             // animated
 ```
 
-#### Carthage
+Available switches: `TKSimpleSwitch`, `TKExchangeSwitch`, `TKSmileSwitch`, `TKLiquidSwitch`.
 
-Create a `Cartfile` that lists the framework and run `carthage update`. Follow
-the [instructions](https://github.com/Carthage/Carthage#if-youre-building-for-ios) to
-add `$(SRCROOT)/Carthage/Build/iOS/TKSwitcherCollection.framework` to an iOS project.
+### SwiftUI
 
-```shell
-github "tbxark/TKSwitcherCollection"
+Every switch ships with a SwiftUI view that wraps the UIKit implementation, so the animations are identical. `isOn` is a regular `Binding<Bool>`.
+
+```swift
+import SwiftUI
+import TKSwitcherCollection
+
+struct DemoView: View {
+    @State private var isOn = true
+
+    var body: some View {
+        TKSimpleSwitchView(isOn: $isOn, rotateWhenValueChange: true)
+            .frame(width: 100, height: 50)
+    }
+}
 ```
 
-#### Manually
+Available views: `TKSimpleSwitchView`, `TKExchangeSwitchView`, `TKSmileSwitchView`, `TKLiquidSwitchView`.
 
-1. Download and drop ```TKSwitcherCollection``` in your project.
-2. Congratulations!
+## Customization
 
-## Usage example
+All color / size properties are settable on both the UIKit controls and their SwiftUI wrappers:
 
-| Class            | Example                                                       |
-|------------------|---------------------------------------------------------------|
-| TKSimpleSwitch   | <img src="Images/simple.gif" style="height:200;width:auto">   |  
-| TKSimpleSwitch   | <img src="Images/simple2.gif" style="height:200;width:auto">  |  
-| TKExchangeSwitch | <img src="Images/exchange.gif" style="height:200;width:auto"> |  
-| TKSmileSwitch    | <img src="Images/smile.gif" style="height:200;width:auto">    |  
-| TKLiquidSwitch   | <img src="Images/liquid.gif" style="height:200;width:auto">   |  
+| Switch             | Properties                                                                          |
+|--------------------|-------------------------------------------------------------------------------------|
+| `TKSimpleSwitch`   | `onColor`, `offColor`, `lineColor`, `circleColor`, `lineSize`, `rotateWhenValueChange` |
+| `TKExchangeSwitch` | `lineColor`, `onColor`, `offColor`, `lineSize`                                       |
+| `TKSmileSwitch`    | –                                                                                   |
+| `TKLiquidSwitch`   | `onColor`, `offColor`                                                               |
 
-## Release History
+All switches also expose `isOn`, `animationDuration`, `onValueChange` and `setOn(_:animated:)`.
 
-* 1.4.2
-  add `IBDesignable`/`IBInspectable` support
-* 1.4.1
-  bugs fixed
-* 1.4.0
-  support swift 4.0
-* 1.3.1
-  support swift 3.0
-* 1.0.3
-  Complete basic functions, add Cocoapod and Carthage support
+## Demo
 
-## Contribute
+```bash
+make demo
+```
 
-We would love for you to contribute to **TKSwitcherCollection**, check the ``LICENSE`` file for more info.
+The demo app is generated with [XcodeGen](https://github.com/yonaskolb/XcodeGen) from `Demo/project.yml` and shows every switch in both a UIKit and a SwiftUI tab. `make demo-build` builds it from the command line.
 
-## Meta
+## License
+
+**TKSwitcherCollection** is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
 
 TBXark – [@tbxark](https://twitter.com/tbxark) – tbxark@outlook.com
-
-Distributed under the MIT license. See ``LICENSE`` for more information.
-
-[https://github.com/TBXark](https://github.com/TBXark)
-
-[swift-image]:https://img.shields.io/badge/swift-3.0-orange.svg
-
-[swift-url]: https://swift.org/
-
-[license-image]: https://img.shields.io/badge/License-MIT-blue.svg
-
-[license-url]: LICENSE
-
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-
-[codebeat-image]: https://codebeat.co/badges/c19b47ea-2f9d-45df-8458-b2d952fe9dad
-
-[codebeat-url]: https://codebeat.co/projects/github-com-vsouza-awesomeios-com

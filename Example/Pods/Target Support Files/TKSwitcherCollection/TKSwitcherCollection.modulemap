@@ -1,6 +1,0 @@
-framework module TKSwitcherCollection {
-  umbrella header "TKSwitcherCollection-umbrella.h"
-
-  export *
-  module * { export * }
-}

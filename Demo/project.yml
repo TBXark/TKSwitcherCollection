@@ -1,0 +1,37 @@
+name: TKSwitcherCollectionDemo
+
+options:
+  deploymentTarget:
+    iOS: "16.0"
+
+packages:
+  TKSwitcherCollection:
+    path: ..
+
+targets:
+  TKSwitcherCollectionDemo:
+    type: application
+    platform: iOS
+
+    sources:
+      - Sources
+
+    dependencies:
+      - package: TKSwitcherCollection
+        product: TKSwitcherCollection
+
+    info:
+      path: Info.plist
+      properties:
+        CFBundleDisplayName: TKSwitcherCollection
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.tbxark.tkswitchercollection.demo
+        SWIFT_VERSION: "6.0"
+        TARGETED_DEVICE_FAMILY: "1"

@@ -128,5 +128,3 @@ The demo app is generated with [XcodeGen](https://github.com/yonaskolb/XcodeGen)
 ## License
 
 **TKSwitcherCollection** is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
-
-TBXark – [@tbxark](https://twitter.com/tbxark) – tbxark@outlook.com

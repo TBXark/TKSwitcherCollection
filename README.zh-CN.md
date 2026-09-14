@@ -128,5 +128,3 @@ Demo 工程由 [XcodeGen](https://github.com/yonaskolb/XcodeGen) 根据 `Demo/pr
 ## License
 
 **TKSwitcherCollection** 使用 MIT 协议, 详见 [LICENSE](LICENSE)。
-
-TBXark – [@tbxark](https://twitter.com/tbxark) – tbxark@outlook.com
